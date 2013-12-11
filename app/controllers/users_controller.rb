@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   before_filter :require_current_user!, :only => [:show]
 

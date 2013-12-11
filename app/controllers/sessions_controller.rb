@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
   before_filter :require_current_user!, :only => [:destroy]
 
   def create
@@ -22,5 +22,4 @@ class SessionController < ApplicationController
 
   def new
   end
-
 end
