@@ -16,6 +16,7 @@ module SessionsHelper
 
   def require_current_user!
     redirect_to new_session_url if current_user.nil?
+    
   end
 
 end

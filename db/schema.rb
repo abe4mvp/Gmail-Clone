@@ -11,15 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131211201909) do
+ActiveRecord::Schema.define(:version => 20131211224027) do
 
   create_table "messages", :force => true do |t|
     t.text     "body"
-    t.string   "to"
-    t.string   "from"
     t.boolean  "draft"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "sender"
+  end
+
+  create_table "recipients", :force => true do |t|
+    t.integer  "message_id"
+    t.string   "email_address"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|

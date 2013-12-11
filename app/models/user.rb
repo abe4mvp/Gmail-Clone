@@ -7,6 +7,14 @@ class User < ActiveRecord::Base
   validates :name, :email, :session_token, :presence => true
 
   after_initialize :ensure_session_token
+  
+  has_many (
+    :sent_messages,
+    class: :messages,
+    foreign_key: ,
+    
+  
+  )
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
