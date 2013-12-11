@@ -1,3 +1,11 @@
 class Abemailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "test@abemail.net" # change to current user
+
+
+
+  def send(to_email, subject, content)
+
+    mail(to: to_email, subject: subject)
+  end
+
 end
