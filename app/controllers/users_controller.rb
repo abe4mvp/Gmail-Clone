@@ -16,12 +16,13 @@ class UsersController < ApplicationController
      @user = User.new
    end
 
-   def show #change this later when bootstrapping
+   def show
      if params.include?(:id)
        @user = User.find(params[:id])
      else
        redirect_to user_url(current_user)
      end
    end
+   #change this later when bootstrapping
 
 end
