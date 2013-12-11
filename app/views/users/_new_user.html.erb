@@ -1,0 +1,27 @@
+<form action="<%= users_url %>" method="post">
+
+  <%= render :partial => 'layouts/authenticity' %>
+
+  <label for="user_name">User Name</label>
+  <input
+     id="user_name"
+     name="user[name]"
+     type="text">
+  <br>
+
+  <label for="user_email">User Email</label>
+  <input
+     id="user_email"
+     name="user[email]"
+     type="text">
+  <br>
+
+  <label for="user_password">Password</label>
+  <input
+     id="user_password"
+     name="user[password]"
+     type="password">
+  <br>
+
+  <input type="submit" value="Sign Up">
+</form>

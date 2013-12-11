@@ -3,7 +3,7 @@ AbeMail::Application.routes.draw do
   resources :users, :only => [:create, :new, :show]
   resource :session, :only => [:create, :destroy, :new]
 
-    root :to => "sessions#new"
+  root :to => "sessions#new"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
