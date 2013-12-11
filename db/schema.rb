@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131211185822) do
+ActiveRecord::Schema.define(:version => 20131211201909) do
 
   create_table "messages", :force => true do |t|
     t.text     "body"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20131211185822) do
     t.string   "password_hash"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "session_token"
   end
 
   add_index "users", ["email", "password_hash"], :name => "index_users_on_email_and_password_hash"
