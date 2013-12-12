@@ -3,7 +3,7 @@
 
   <% @sent_messages.each do |message| %>
     <tr>
-      <td><%= render partial: 'recipients', locals: { message: message } %></td>
+      <td><%= render partial: 'messages/recipients', locals: { message: message } %></td>
       <td>
         <%= render partial: 'message_preview', locals: { message: message }%>
       </td>

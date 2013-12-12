@@ -1,6 +1,6 @@
-<h1>Conversation with: <%= message.subject %></h1>
+<h1><%= @message.subject %></h1>
 <ul>
-  <li><%= message.sender %></li>
-  <li><%= messsage.recipients %></li>
-  <li><%= message.body %></li>
+  <li><%= @message.sender %></li>
+  <li><%= render partial: "recipients", locals:{ message: @message } %></li>
+  <li><%= @message.body %></li>
 </ul>

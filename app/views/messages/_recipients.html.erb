@@ -1,0 +1,4 @@
+<% recievers = message.recipients.map do |recipient|  %>
+  <% recipient.email_address %>
+<% end %>
+To:<%= recievers.join("; ") %>
