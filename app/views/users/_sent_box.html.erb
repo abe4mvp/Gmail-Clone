@@ -9,6 +9,7 @@
             <%= recievers.join("; ") %>
       </li>
       <li>Subject: <%= message.subject %></li>
+      <li><%= time_tag(message.created_at, format:'%B %d, %l:%M %p') %></li>
     </ul>
   </li>
   <br>
