@@ -1,4 +1,4 @@
-<h2>To:</h2>
-  <% message.recipients.map do |recipient|  %>
-    <%= recipient.email_address %>
-    <% end.join("; ") %>
+To:<% recievers = message.recipients.map do |recipient|  %>
+              <% recipient.email_address %>
+            <% end %>
+            <%= recievers.join("; ") %>

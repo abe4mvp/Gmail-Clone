@@ -1,0 +1,2 @@
+<%= link_to message.subject != "" ? message.subject : "click", message_url(message) %> -
+<%= message.body.squeeze.slice(0, 300 - message.subject.length) %>

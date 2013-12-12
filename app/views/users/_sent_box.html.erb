@@ -3,11 +3,10 @@
 
   <% @sent_messages.each do |message| %>
     <tr>
-      <td><% recievers = message.recipients.map do |recipient|  %>
-              <% recipient.email_address %>
-            <% end %>
-            <%= recievers.join("; ") %></td>
-      <td><%= message.subject %></td>
+      <td><%= render partial: 'recipients', locals: { message: message } %></td>
+      <td>
+        <%= render partial: 'message_preview', locals: { message: message }%>
+      </td>
       <td><%= time_tag(message.created_at, format:'%B %d, %l:%M %p') %></td>
     </tr>
   <% end %>
