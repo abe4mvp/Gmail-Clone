@@ -2,13 +2,10 @@
 
 <p>Hello, dear user!</p>
 
-<h2>sent:</h2>
-<%= @sent_messages %>
-<h2>received:</h2>
-<%= @received_messages %>
 
-<h2>new email</h2>
+<%= render :partial => 'inbox' %>
 
+<%= render :partial => 'sent_box' %>
 
-<%= render :partial => 'new_email' %>
+<%= render partial: "new_email" %>
 

@@ -1,0 +1,12 @@
+<h2>Inbox:</h2>
+<ol>
+<% @received_messages.each do |message| %>
+  <li>
+    <ul>
+      <li>From: <%= message.sender %></li>
+      <li>Subject: <%= message.subject %></li>
+    </ul>
+  </li>
+  <br>
+<% end %>
+</ol>

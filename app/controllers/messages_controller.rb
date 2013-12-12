@@ -4,6 +4,15 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(params[:message])
+    @message = new_message_with_recipients
+
+    if @message.save
+      redirect_to user_url(current_user)
+    else
+      render json: @message.errors.full_messages
+      @message.recipients.errors.full_messages
+    end
   end
+
+
 end
