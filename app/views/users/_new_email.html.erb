@@ -1,0 +1,16 @@
+<%= form_for(:message, url: messages_url, html:{multipart: true}) do |f| %>
+<%= render partial: "layouts/authenticity" %>
+
+  <%= f.fields_for(:recipients) do |r| %>
+
+    <%= r.text_field :email_address, placeholder: "To:" %>
+
+  <% end %>
+  <br>
+  <%= f.text_field :subject, placeholder: "Subject:"%>
+  <br>
+  <%= f.text_area :body, value: ("&#13;" *3).html_safe + "From,&#13".html_safe + @user.name  %>
+
+  <br>
+  <input type="submit" value="Send &rarr;">
+<% end %>
