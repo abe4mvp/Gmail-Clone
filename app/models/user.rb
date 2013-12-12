@@ -7,14 +7,24 @@ class User < ActiveRecord::Base
   validates :name, :email, :session_token, :presence => true
 
   after_initialize :ensure_session_token
-  
-  has_many (
+
+  has_many(
     :sent_messages,
-    class: :messages,
-    foreign_key: ,
-    
-  
+    class_name: "message",
+    foreign_key: :sender_id,
+    primary_key: :id
   )
+
+  has_many(
+    :recipients,
+    class_name: "recipient",
+    foreign_key: :recipient_id,
+    primary_key: :id
+  )
+
+  has_many :received_messages, through: :recpients, source: :message
+
+
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
