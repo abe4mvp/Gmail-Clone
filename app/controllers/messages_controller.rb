@@ -18,11 +18,20 @@ class MessagesController < ApplicationController
   end
 
   def update
-
+    @message = Message.find(params[:id])
+    if @message.update_attributes(params[:message])
+      redirect_to users_url(current_user)
+    else
+      render json: @message.errors.full_messages
+    end
   end
 
-  def destroy
-    fail
-  end
+  # def destroy
+ #    @message = Message.find(params[:id])
+ #    @message && @message.delete
+ #    redirect_to users_url(current_user)
+ #  end
+ # users cant delete messages from database, only unhide them
+
 
 end
