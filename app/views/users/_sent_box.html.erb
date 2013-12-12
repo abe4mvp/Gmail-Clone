@@ -1,17 +1,14 @@
 <h2>Sent:</h2>
-<ol>
-  <% @sent_messages.each do |message|%>
-  <li>
-    <ul>
-      <li>TO:<% recievers = message.recipients.map do |recipient|  %>
+<table class="emails" border="1">
+
+  <% @sent_messages.each do |message| %>
+    <tr>
+      <td><% recievers = message.recipients.map do |recipient|  %>
               <% recipient.email_address %>
             <% end %>
-            <%= recievers.join("; ") %>
-      </li>
-      <li>Subject: <%= message.subject %></li>
-      <li><%= time_tag(message.created_at, format:'%B %d, %l:%M %p') %></li>
-    </ul>
-  </li>
-  <br>
-<% end %>
-</ol>
+            <%= recievers.join("; ") %></td>
+      <td><%= message.subject %></td>
+      <td><%= time_tag(message.created_at, format:'%B %d, %l:%M %p') %></td>
+    </tr>
+  <% end %>
+</table>

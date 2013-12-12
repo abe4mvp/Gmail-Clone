@@ -1,13 +1,12 @@
 <h2>Inbox:</h2>
-<ol>
-<% @received_messages.each do |message| %>
-  <li>
-    <ul>
-      <li>From: <%= message.sender %></li>
-      <li>Subject: <%= message.subject %></li>
-      <li><%= time_tag(message.created_at, format:'%B %d, %l:%M %p') %></li>
-    </ul>
-  </li>
-  <br>
-<% end %>
-</ol>
+<table class="emails" border="1">
+
+  <% @received_messages.each do |message| %>
+    <tr>
+      <td><%= message.sender %></td>
+      <td><%= message.subject %></td>
+      <td><%= time_tag(message.created_at, format:'%B %d, %l:%M %p') %></td>
+    </tr>
+  <% end %>
+</table>
+
