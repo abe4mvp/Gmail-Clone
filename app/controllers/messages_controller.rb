@@ -5,7 +5,6 @@ class MessagesController < ApplicationController
 
   def create
     @message = new_message_with_recipients
-
     if @message.save
       redirect_to user_url(current_user)
     else

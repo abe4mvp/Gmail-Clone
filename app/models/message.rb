@@ -17,6 +17,8 @@ class Message < ActiveRecord::Base
     foreign_key: :sender_id,
     primary_key: :id
   )
+  
+  
 
 
 end

@@ -3,9 +3,10 @@
   <% @sent_messages.each do |message|%>
   <li>
     <ul>
-      <li>TO:<% message.recipients.map do |recipient|  %>
-        <%= recipient.email_address %>
-        <% end.join("; ") %>
+      <li>TO:<% recievers = message.recipients.map do |recipient|  %>
+              <% recipient.email_address %>
+            <% end %>
+            <%= recievers.join("; ") %>
       </li>
       <li>Subject: <%= message.subject %></li>
     </ul>
