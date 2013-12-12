@@ -17,5 +17,12 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
   end
 
+  def update
+
+  end
+
+  def destroy
+    fail
+  end
 
 end

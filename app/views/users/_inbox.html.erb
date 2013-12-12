@@ -3,6 +3,12 @@
 
   <% @received_messages.each do |message| %>
     <tr>
+      <td>
+        <input type="checkbox" name="selector[]" value="" id="selector[]">
+      </td>
+      <td>
+        <%# '&hearts;'.html_safe if message.starred %>
+      </td>
       <td><%= message.sender %></td>
       <td>
         <%= render partial: 'message_preview', locals: { message: message }%>

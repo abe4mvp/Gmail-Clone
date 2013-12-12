@@ -3,7 +3,16 @@
 
   <% @sent_messages.each do |message| %>
     <tr>
-      <td><%= render partial: 'messages/recipients', locals: { message: message } %></td>
+      <td>
+        <input type="checkbox" name="selector[]" value="" id="selector[]">
+      </td>
+      <td>
+        <%# '&hearts;'.html_safe if message.starred %>
+        <%# need to change to star apply for individual users %>
+      </td>
+      <td>
+        <%= render partial: 'messages/recipients', locals: { message: message } %>
+      </td>
       <td>
         <%= render partial: 'message_preview', locals: { message: message }%>
       </td>

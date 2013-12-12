@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  attr_accessible :body, :draft, :sender, :sender_id, :subject
+  attr_accessible :body, :draft, :sender, :sender_id, :subject, :starred
   # allowing :recipients here lets you created the nested model?
 
 
@@ -17,8 +17,8 @@ class Message < ActiveRecord::Base
     foreign_key: :sender_id,
     primary_key: :id
   )
-  
-  
+
+
 
 
 end

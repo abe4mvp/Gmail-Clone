@@ -2,6 +2,12 @@
 
 <p>Hello, dear user!</p>
 
+<%= button_to "Trash",  {controller: :messages, action: 'destroy', id: 1}, method: :delete%>
+<%# this is temporary will be replaced in javascript/backbone %>
+
+
+<%= button_to "Star", message_url(1), method: :put %>
+
 
 <%= render :partial => 'inbox' %>
 
