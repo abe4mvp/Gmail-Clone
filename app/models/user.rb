@@ -10,19 +10,19 @@ class User < ActiveRecord::Base
 
   has_many(
     :sent_messages,
-    class_name: "message",
+    class_name: "Message",
     foreign_key: :sender_id,
     primary_key: :id
   )
 
   has_many(
     :recipients,
-    class_name: "recipient",
+    class_name: "Recipient",
     foreign_key: :recipient_id,
     primary_key: :id
   )
 
-  has_many :received_messages, through: :recpients, source: :message
+  has_many :received_messages, through: :recipients, source: :message
 
 
 

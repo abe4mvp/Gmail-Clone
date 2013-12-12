@@ -17,11 +17,9 @@ class UsersController < ApplicationController
    end
 
    def show
-     if params.include?(:id)
-       @user = User.find(params[:id])
-     else
-       redirect_to user_url(current_user)
-     end
+     @sent_messages = current_user.sent_messages
+     @received_messages = current_user.received_messages
+     @user = current_user
    end
    #change this later when bootstrapping
 
