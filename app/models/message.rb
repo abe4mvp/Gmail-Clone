@@ -18,7 +18,7 @@ class Message < ActiveRecord::Base
     primary_key: :id
   )
 
-  has_many :message_flags
+  has_many :message_flags, inverse_of: :message
 
 
 

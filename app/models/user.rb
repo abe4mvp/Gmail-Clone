@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :name, :email, :session_token, :presence => true
 
   after_initialize :ensure_session_token
+  before_create :add_extension
 
   has_many :message_flags
 
@@ -26,7 +27,13 @@ class User < ActiveRecord::Base
 
   has_many :received_messages, through: :recipients, source: :message
 
+  def abemail_extension
+    abemail_extension?(self.email)
+  end
 
+  def add_extension
+    self.email += "@abemail.net"
+  end
 
 
   def self.find_by_credentials(email, password)

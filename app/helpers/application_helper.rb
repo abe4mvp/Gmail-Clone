@@ -10,5 +10,10 @@ module ApplicationHelper
       end
     end
 
+
+  def abemail_extension?(email_adress)
+    email_address.ends_with?("@abemail.net")
+  end
+
     #send("#{model.class.to_s.downcase}_url", model )
 end
