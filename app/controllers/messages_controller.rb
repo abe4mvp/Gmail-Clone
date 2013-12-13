@@ -1,10 +1,11 @@
 class MessagesController < ApplicationController
   def outgoing #do this in a transaction??
     imply_sender
-
+    parsed_emails = parse_emails_for_outgoing
+    params[:message][:recipient_emails] = params[:recipients]
     @message = Message.new(params[:message])
 
-    create_recipients!
+    create_recipients!(parsed_emails)
     create_sender_flags!
 
     if @message.save
@@ -18,14 +19,18 @@ class MessagesController < ApplicationController
   def incoming
     #decide what to do based on the extension of the from email
     #this is not how it will work for real messages
+
     @message = Message.find(params[:message])
     #replace with a create to define @message, rest of this method is dependent
-    parsed_email_addresses = parse_recipients
+    parsed_email_addresses = parse_emails_from_incoming
+
+
+
     create_receiver_flags!(parsed_email_addresses)
 
     create_recipients! unless User.find_by_email(@message.sender)
     if @message.save
-      redirect_to users_url(current_user)
+      redirect_to users_url(current_user.id)
     else
       render json: @message.errors.full_messages
     end
@@ -38,7 +43,7 @@ class MessagesController < ApplicationController
   def update
     @message = Message.find(params[:id])
     if @message.update_attributes(params[:message])
-      redirect_to users_url(current_user)
+      redirect_to controller: 'users', action: 'show', id: current_user.id
     else
       render json: @message.errors.full_messages
     end

@@ -5,19 +5,26 @@ module MessagesHelper
     params[:message][:sender] = current_user.email
   end
 
-  def parse_recipients
+  def parse_emails_from_incoming
     @message.recipient_emails.split(";").map(&:strip)
     #.keep_if(valid_email?)
   end
+  # refactor and use a prc? or lambda
+  def parse_emails_for_outgoing
+    params[:recipients].split(";").map(&:strip)
+    #.keep_if(valid_email?)
+  end
+
+
+
 
   def valid_email?
     #some fancy regex
   end
 
-  def create_recipients!
-    fail
-    parse_recipients.each do |recipient|
-      @message.recipients.new(email_address: recipient.strip)
+  def create_recipients!(parsed_emails)
+    parsed_emails.each do |email|
+      @message.recipients.new(email_address: email)
     end
   end
 
