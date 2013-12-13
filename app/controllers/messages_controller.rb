@@ -5,10 +5,10 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
 
     create_recipients!
-    create_sender_flags!
+    # create_sender_flags!
 
     if @message.save
-      redirect_to receive_messages_url
+      redirect_to controller: 'messages', action: 'incoming', message: @message
 #this is only for rails, it should actually send the emails here during backbone
     else
       render json: @message.errors.full_messages #+ @message.recipients.errors.full_messages
@@ -16,7 +16,10 @@ class MessagesController < ApplicationController
   end
 
   def incoming
-    fail
+    #this is not how it will work for real messages
+    @message = Message.find(params[:message]) #replace with a create
+
+
   end
 
   def show

@@ -5,7 +5,7 @@ AbeMail::Application.routes.draw do
   resources :messages, only: [:create, :show, :update] do
     collection do
       post "outgoing"
-      post "incoming"
+      get "incoming" #change back to post
     end
   end
 
