@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
    def show
      @sent_messages = current_user.sent_messages
-     @received_messages = current_user.received_messages
+     @received_messages = Message.where(recipient_emails: current_user.email) #change later
      @user = current_user
    end
    #change this later when bootstrapping
