@@ -4,8 +4,8 @@ AbeMail::Application.routes.draw do
   resource :session, only: [:create, :destroy, :new]
   resources :messages, only: [:create, :show, :update] do
     collection do
-      post "send"
-      post "receive"
+      post "outgoing"
+      post "incoming"
     end
   end
 

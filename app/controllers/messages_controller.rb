@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  def send #do this in a transaction??
+  def outgoing #do this in a transaction??
     imply_sender
 
     @message = Message.new(params[:message])
@@ -11,11 +11,11 @@ class MessagesController < ApplicationController
       redirect_to receive_messages_url
 #this is only for rails, it should actually send the emails here during backbone
     else
-      render json: @message.errors.full_messages + @message.recipients.errors.full_messages
+      render json: @message.errors.full_messages #+ @message.recipients.errors.full_messages
     end
   end
 
-  def receive
+  def incoming
     fail
   end
 

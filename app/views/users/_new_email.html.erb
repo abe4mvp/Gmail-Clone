@@ -1,12 +1,14 @@
 
 <h2>new email</h2>
-<form action="<%= send_messages_url %>" method="post">
+<form action="<%= outgoing_messages_url %>" method="post">
   <%= render partial: "layouts/authenticity" %>
   <input type="text" name="recipients" placeholder="to">
   <br>
   <input type="text" name="message[subject]" id="message[subject]" placeholder="subject">
   <br>
-  <textarea name="message[body]" id="message[body]" rows="20" cols="80"><%= ("&#13;" *3).html_safe %>From, &#13; <%= @user.name  %></textarea>
+  <textarea name="message[body]" id="message[body]" rows="20" cols="80">
+    <%= ("&#13;" *3).html_safe %>From, &#13; <%= @user.name  %>
+  </textarea>
 
   <p><input type="submit" value="Send &rarr;"></p>
 </form>
