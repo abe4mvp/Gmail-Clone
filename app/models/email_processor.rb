@@ -12,7 +12,7 @@ class EmailProcessor < ActiveRecord::Base # to add the logger
 
     logger.debug "--------------------we made it this far!"
     message.save
-    ogger.debug "--------------------by now we might have an email!"
+    logger.debug "--------------------by now we might have an email!"
   end
 
 end
