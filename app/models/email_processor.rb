@@ -1,6 +1,9 @@
 
 class EmailProcessor
   def self.process(email)
+
+    logger.debug "X-----------------------------------X" + email
+
     message = Message.new({
       body: email.raw_body,
       sender: email.from ,
@@ -9,9 +12,9 @@ class EmailProcessor
       recipient_emails: email.to
     })
 
-    logger.debug "XXXXXXXXXXXXXXXXXXXXXXXXXX" + email
 
-    logger.debug "XXXXXXXXXXXXXXXXXXXXXXXXXX" + message
+
+    logger.debug "X-------------------------X" + message
   end
 
 end
