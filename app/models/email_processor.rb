@@ -1,5 +1,5 @@
 
-class EmailProcessor
+class EmailProcessor < ActiveRecord::Base # to add the logger
   def self.process(email)
 
     logger.debug "-----------------------------" + email
