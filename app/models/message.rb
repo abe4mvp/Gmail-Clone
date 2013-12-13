@@ -34,13 +34,6 @@ class Message < ActiveRecord::Base
     user && self.sender_id = user.id
   end
 
-  def recipient_emails=(email) #change later
-    if email.class == Array
-      email.first.strip
-    else
-      email.first.strip
-    end
-  end
 
 
 
