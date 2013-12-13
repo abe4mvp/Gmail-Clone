@@ -39,6 +39,6 @@ jsoned =  JSON.parse(header).to_json
 # puts jsoned
 
 
- response = RestClient.post  'http://localhost:3000/email_processor', {params: "X-SMTPAPI: #{jsoned}" }, :content_type => :json, :accept => :json
+ response = RestClient.post  'http://www.abemail.net/email_processor', {'X-SMTPAPI'=> jsoned}, :content_type => :json, :accept => :json
 
  puts response
