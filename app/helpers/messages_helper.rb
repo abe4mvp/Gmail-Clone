@@ -6,7 +6,7 @@ module MessagesHelper
   end
 
   def parse_recipients
-    params[:recipients].split(";")
+    @message.recipient_emails.split(";").map(&:strip)
     #.keep_if(valid_email?)
   end
 
@@ -15,6 +15,7 @@ module MessagesHelper
   end
 
   def create_recipients!
+    fail
     parse_recipients.each do |recipient|
       @message.recipients.new(email_address: recipient.strip)
     end
@@ -23,7 +24,18 @@ module MessagesHelper
   def create_sender_flags!
     @message.message_flags.new(user_id: current_user.id)
   end
-  # 
+
+  def create_receiver_flags!(parsed_email_addresses)
+    parsed_email_addresses.each do |email|
+      internal_user = User.find_by_email(email)
+      if internal_user
+        @message.message_flags.new(user_id: internal_user.id)
+      else
+        @message.errors += "no user found at #{email}"
+      end
+    end
+  end
+  #
   # def send_email!
   #   parse_recipients
   # end

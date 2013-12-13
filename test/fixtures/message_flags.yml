@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  message_id: 1
+  user_id: 1
+  starred: false
+  read: false
+  trashed: false
+
+two:
+  message_id: 1
+  user_id: 1
+  starred: false
+  read: false
+  trashed: false
