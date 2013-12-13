@@ -8,10 +8,15 @@ class MessagesController < ApplicationController
     create_sender_flags!
 
     if @message.save
-      redirect_to user_url(current_user)
+      redirect_to receive_messages_url
+#this is only for rails, it should actually send the emails here during backbone
     else
       render json: @message.errors.full_messages + @message.recipients.errors.full_messages
     end
+  end
+
+  def receive
+    fail
   end
 
   def show

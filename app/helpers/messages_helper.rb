@@ -24,6 +24,11 @@ module MessagesHelper
     @message.message_flags.new(user_id: current_user.id)
   end
 
+  def send_email!
+    parse_recipients
+  end
+
+
   # def send_internal_emails(recipients_emails)
   #
   #   #validate_email_addresses
