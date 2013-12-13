@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   before_create :add_extension
 
-  has_many :message_flags
 
   has_many(
     :sent_messages,

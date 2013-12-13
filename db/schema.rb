@@ -11,20 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213021617) do
-
-  create_table "message_flags", :force => true do |t|
-    t.integer  "message_id",                    :null => false
-    t.integer  "user_id",                       :null => false
-    t.boolean  "starred",    :default => false
-    t.boolean  "read",       :default => false
-    t.boolean  "trashed",    :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-  end
-
-  add_index "message_flags", ["message_id"], :name => "index_message_flags_on_message_id"
-  add_index "message_flags", ["user_id"], :name => "index_message_flags_on_user_id"
+ActiveRecord::Schema.define(:version => 20131213042729) do
 
   create_table "messages", :force => true do |t|
     t.text     "body"
