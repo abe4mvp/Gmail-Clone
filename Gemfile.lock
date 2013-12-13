@@ -48,7 +48,14 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.0.2)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
+    griddler (0.6.1)
+      htmlentities
+      rails (>= 3.2.0)
     hike (1.2.3)
+    htmlentities (4.3.1)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -91,6 +98,8 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     sass (3.2.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -119,9 +128,13 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 3.2.1)
+  figaro
+  griddler
   jquery-rails
+  json
   letter_opener
   pg
   rails (= 3.2.13)
+  rest-client
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

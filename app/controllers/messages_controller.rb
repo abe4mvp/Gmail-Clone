@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   def outgoing #do this in a transaction??
+
     imply_sender
     parsed_emails = parse_emails_for_outgoing
     params[:message][:recipient_emails] = params[:recipients]
@@ -19,7 +20,6 @@ class MessagesController < ApplicationController
   def incoming
     #decide what to do based on the extension of the from email
     #this is not how it will work for real messages
-
     @message = Message.find(params[:message])
     #replace with a create to define @message, rest of this method is dependent
     parsed_email_addresses = parse_emails_from_incoming

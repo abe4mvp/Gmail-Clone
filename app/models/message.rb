@@ -2,6 +2,8 @@ class Message < ActiveRecord::Base
   attr_accessible :body, :draft, :sender, :sender_id, :subject, :recipient_emails
   # allowing :recipients here lets you created the nested model?
 
+  #after_initialize :set_internal_user_id
+
   ## need to remove starred
   has_many(
     :recipients,
@@ -25,6 +27,12 @@ class Message < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :message
   )
+
+  def set_internal_user_id
+    return if self.sender_id
+    user = User.find_by_email(self.sender)
+    user && self.sender_id = user.id
+  end
 
 
 

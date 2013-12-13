@@ -5,11 +5,14 @@ AbeMail::Application.routes.draw do
   resources :messages, only: [:create, :show, :update] do
     collection do
       post "outgoing"
-      get "incoming" #change back to post
+      get "incoming" #change back to post?
     end
   end
 
   root :to => "sessions#new"
+
+  #email_processor added automaticaly
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
