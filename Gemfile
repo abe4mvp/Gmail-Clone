@@ -28,6 +28,10 @@ group :development do
 end
 
 gem 'jquery-rails'
+gem 'griddler'
+gem 'figaro'
+gem 'rest-client'
+gem 'json'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', :require => 'bcrypt'
