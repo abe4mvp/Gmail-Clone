@@ -2,7 +2,8 @@
 class EmailProcessor
   def self.process(email)
 
-    logger.debug "X-----------------------------------X" + email
+    logger.debug "-----------------------------" + email
+    logger.debug "-----------------------------" + email.to_ss
 
     message = Message.new({
       body: email.raw_body,
@@ -14,7 +15,7 @@ class EmailProcessor
 
 
 
-    logger.debug "X-------------------------X" + message
+    logger.debug "X-----------------------------X" + message
   end
 
 end
