@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :message_flags
+
   has_many(
     :sent_messages,
     class_name: "Message",
@@ -23,6 +25,7 @@ class User < ActiveRecord::Base
   )
 
   has_many :received_messages, through: :recipients, source: :message
+
 
 
 

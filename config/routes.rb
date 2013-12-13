@@ -2,7 +2,12 @@ AbeMail::Application.routes.draw do
 
   resources :users, only: [:create, :show]
   resource :session, only: [:create, :destroy, :new]
-  resources :messages, only: [:create, :show, :update]
+  resources :messages, only: [:create, :show, :update] do
+    collection do
+      post "send"
+      post "receive"
+    end
+  end
 
   root :to => "sessions#new"
   # The priority is based upon order of creation:

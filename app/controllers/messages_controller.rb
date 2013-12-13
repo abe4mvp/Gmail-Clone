@@ -1,15 +1,16 @@
 class MessagesController < ApplicationController
-  def index
-    @messages = Message.all
-  end
+  def send #do this in a transaction??
+    imply_sender
 
-  def create
-    @message = new_message_with_recipients
+    @message = Message.new(params[:message])
+
+    create_recipients!
+    create_sender_flags!
+
     if @message.save
       redirect_to user_url(current_user)
     else
-      render json: @message.errors.full_messages
-      @message.recipients.errors.full_messages
+      render json: @message.errors.full_messages + @message.recipients.errors.full_messages
     end
   end
 
