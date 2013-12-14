@@ -5,10 +5,13 @@ class User < ActiveRecord::Base
   validates :password_hash, :presence => { :message => "Password can't be blank" }
   validates :password, :length => { :minimum => 6, :allow_nil => true }
   validates :name, :email, :session_token, :presence => true
+  validates :email, uniquness: true
 
   validates :email, format: { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, before: :create }
 
   after_initialize :ensure_session_token
+
+  before_create :downcase_email
 
   has_many :message_flags
 
@@ -27,6 +30,10 @@ class User < ActiveRecord::Base
   )
 
   has_many :received_messages, through: :recipients, source: :message
+
+  def downcase_email
+    self.email.downcase!
+  end
 
 
   def self.find_by_credentials(email, password)

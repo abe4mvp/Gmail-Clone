@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     validate_extension
 
     user = User.find_by_credentials(
-      params[:user][:email],
+      params[:user][:email].downcase,
       params[:user][:password]
     )
 
