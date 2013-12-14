@@ -6,12 +6,12 @@ class SessionsController < ApplicationController
     validate_extension
 
     user = User.find_by_credentials(
-      params[:user][:username],
+      params[:user][:email],
       params[:user][:password]
     )
 
     if user.nil?
-      render :json => "Username or password was wrong"
+      render :json => "Email or password was wrong"
     else
       self.current_user = user
       redirect_to user_url(user)

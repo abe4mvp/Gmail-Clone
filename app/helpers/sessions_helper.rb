@@ -1,7 +1,7 @@
 module SessionsHelper
 
   def current_user
-    User.find_by_session_token(session[:session_token])
+    @current_user || User.find_by_session_token(session[:session_token]) #change so it doesnt query?
   end
 
   def current_user=(user)
@@ -18,8 +18,6 @@ module SessionsHelper
     redirect_to new_session_url if current_user.nil?
   end
 
-  def validate_extension
-    params[:user][:username] += "@abemail.net" unless params[:user][:username].ends_with?("@abemail.net")
-  end
+
 
 end

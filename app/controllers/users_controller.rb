@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_filter :require_current_user!, only: [:show]
 
    def create
+     validate_extension
+
      @user = User.new(params[:user])
 
      if @user.save

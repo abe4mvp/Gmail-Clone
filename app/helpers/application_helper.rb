@@ -10,5 +10,9 @@ module ApplicationHelper
       end
     end
 
+    def validate_extension
+      params[:user][:email] += "@abemail.net" unless params[:user][:email].ends_with?("@abemail.net")
+    end
+
     #send("#{model.class.to_s.downcase}_url", model )
 end

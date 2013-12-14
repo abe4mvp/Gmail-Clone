@@ -5,4 +5,6 @@ class ApplicationController < ActionController::Base
 
   include MessagesHelper
 
+  include ApplicationHelper
+
 end

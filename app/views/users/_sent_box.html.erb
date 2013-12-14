@@ -11,7 +11,7 @@
         <%# need to change to star apply for individual users %>
       </td>
       <td>
-        <%= render partial: 'messages/recipients', locals: { message: message } %>
+        <%= message.display_recipient_emails  %>
       </td>
       <td>
         <%= render partial: 'message_preview', locals: { message: message }%>

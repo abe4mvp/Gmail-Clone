@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
   validates :password_hash, :presence => { :message => "Password can't be blank" }
   validates :password, :length => { :minimum => 6, :allow_nil => true }
   validates :name, :email, :session_token, :presence => true
+
   validates :email, format: { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, before: :create }
 
   after_initialize :ensure_session_token
-  before_validation :add_extension
 
   has_many :message_flags
 
@@ -27,10 +27,6 @@ class User < ActiveRecord::Base
   )
 
   has_many :received_messages, through: :recipients, source: :message
-
-  def add_extension
-    self.email += "@abemail.net"
-  end
 
 
   def self.find_by_credentials(email, password)
