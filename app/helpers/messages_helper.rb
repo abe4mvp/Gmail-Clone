@@ -22,9 +22,9 @@ module MessagesHelper
     #some fancy regex
   end
 
-  def create_recipients!(parsed_emails)
+  def create_recipients!(message, parsed_emails)
     parsed_emails.each do |email|
-      @message.recipients.new(email_address: email)
+      message.recipients.new(email_address: email)
     end
   end
 

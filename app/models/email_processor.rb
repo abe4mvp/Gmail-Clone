@@ -1,22 +1,29 @@
-
-class EmailProcessor < ActiveRecord::Base # to add the logger
+class EmailProcessor < ApplicationController # to add the logger
   def self.process(email)
     puts "--------------------started from the bottom now we here!"
+    puts "class = #{email.to.class} "
+    puts "email_addresses = #{email.to} "
 
-    abe_mail = email.to.class == Array ? email.to.first.strip : email.to.strip
- message = Message.new({
+    recipients = parse_recipients(email)
+    puts "recipients: #{recipients}"
+
+    message = Message.new({
       body: email.raw_body,
       sender: email.from ,
       draft: false,
       subject: email.subject,
-      recipient_emails: abe_mail
+      recipient_emails: parse_recipients(email)
     })
 
-    puts "--------------------we made it this far!"
-    message.save
-    puts "--------------------by now we might have an email!"
+    create_recipients!(parsed_emails)
+
+    render status: 420 unless message.save
+
   end
 
+  def parse_recipients(email)
+    email.to.class == Array ? email.to.first.strip : email.to.strip
+  end
 end
 
 # :body, :draft, :sender, :sender_id, :subject, :recipient_emails
