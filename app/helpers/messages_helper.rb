@@ -5,15 +5,15 @@ module MessagesHelper
     params[:message][:sender] = current_user.email
   end
 
-  def parse_emails_from_incoming
-    @message.recipient_emails.split(";").map(&:strip)
-    #.keep_if(valid_email?)
-  end
-  # refactor and use a prc? or lambda
-  def parse_emails_for_outgoing
-    params[:recipients].split(";").map(&:strip)
-    #.keep_if(valid_email?)
-  end
+  # def parse_emails_from_incoming
+  #   @message.recipient_emails.split(";").map(&:strip)
+  #   #.keep_if(valid_email?)
+  # end
+  # # refactor and use a prc? or lambda
+  # def parse_emails_for_outgoing
+  #   params[:recipient_emails].split(";").map(&:strip)
+  #   #.keep_if(valid_email?)
+  # end
 
 
 
