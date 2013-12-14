@@ -7,7 +7,7 @@
         <input type="checkbox" name="selector[]" value="" id="selector[]">
       </td>
       <td>
-        <%# '&hearts;'.html_safe if message.starred %>
+        <%= '&hearts;'.html_safe if message.message_flags.starred %>
       </td>
       <td><%= message.sender %></td>
       <td>
