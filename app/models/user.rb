@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :password_hash, :presence => { :message => "Password can't be blank" }
   validates :password, :length => { :minimum => 6, :allow_nil => true }
   validates :name, :email, :session_token, :presence => true
+  validates :email, format: { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
 
   after_initialize :ensure_session_token
   before_create :add_extension
@@ -26,10 +27,6 @@ class User < ActiveRecord::Base
   )
 
   has_many :received_messages, through: :recipients, source: :message
-
-  def abemail_extension
-    abemail_extension?(self.email)
-  end
 
   def add_extension
     self.email += "@abemail.net"
