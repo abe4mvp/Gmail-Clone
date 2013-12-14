@@ -37,6 +37,8 @@ class Message < ActiveRecord::Base
 
   def format_recipient_emails
     self.recipient_emails.gsub!(/\s+/m, ';')
+    self.recipient_emails.append(';') unless self.recipient_emails.ends_with?(';')
+    self.recipient_emails.prepend(';') unless self.recipient_emails.starts_with?(';')
   end
 
   def display_recipient_emails
