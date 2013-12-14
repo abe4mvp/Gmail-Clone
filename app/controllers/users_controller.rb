@@ -12,10 +12,6 @@ class UsersController < ApplicationController
      end
    end
 
-   def new
-     @user = User.new
-   end
-
    def show
      @sent_messages = current_user.sent_messages
 

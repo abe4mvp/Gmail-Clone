@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
   before_filter :require_current_user!, :only => [:destroy]
 
   def create
+
+    validate_extension
+
     user = User.find_by_credentials(
       params[:user][:username],
       params[:user][:password]
