@@ -28,15 +28,6 @@ module MessagesHelper
     @message.message_flags.new(user_id: current_user.id)
   end
 
-  def create_receiver_flags!(message, parsed_email_addresses)
-    parsed_email_addresses.each do |email|
-      internal_user = User.find_by_email(email)
-      if internal_user
-        message.message_flags.new(user_id: internal_user.id)
-      else
-        message.errors += "no user found at #{email}" #does this actually do anything?
-      end
-    end
-  end
+
 
 end
