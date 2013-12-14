@@ -2,17 +2,15 @@ class MessagesController < ApplicationController
   def outgoing #do this in a transaction??
     imply_sender
 
-    # parsed_emails = parse_emails_for_outgoing
     @message = Message.new(params[:message])
 
-    # create_recipients!(parsed_emails)
     create_sender_flags!
 
     if @message.save
       redirect_to user_url(current_user)
 #this is only for rails, it should actually send the emails here during backbone
     else
-      render json: @message.errors.full_messages + @message.recipients.errors.full_messages
+      render json: @message.errors.full_messages
     end
   end
 

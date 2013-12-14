@@ -18,8 +18,8 @@ class UsersController < ApplicationController
 
    def show
      @sent_messages = current_user.sent_messages
-     @received_messages = Message.where(recipient_emails: current_user.email) #change later
-     @user = current_user
+     user_email = "%;#{current_user.email}%"
+     @received_messages = Message.where("recipient_emails like ?", user_email)
    end
    #change this later when bootstrapping
 
