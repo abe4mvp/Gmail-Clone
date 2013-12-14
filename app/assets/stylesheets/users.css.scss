@@ -22,7 +22,7 @@
 
 
 .emails tr {
-  background-color:#2f2f2f;
+  background-color:#171515;
 }
 .emails td {
   font-size:12px;
@@ -32,7 +32,12 @@
   border-color: #686767;
 }
 .emails tr:hover {
-  background-color:#171515;
+  background-color:#565656;
+}
+
+.emails .bold {
+  font-weight:bold;
+  background-color:#2f2f2f;
 }
 
 
@@ -71,3 +76,5 @@
 #dropdown li:nth-child(odd){
   background:gray;
 }
+
+

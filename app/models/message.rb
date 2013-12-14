@@ -49,7 +49,7 @@ class Message < ActiveRecord::Base
   end
 
   def create_receiver_flags
-    self.recipient_emails.split(';').slice(1,-1).each do |email|
+    self.recipient_emails.split(';').slice(1..-1).each do |email|
       internal_user = User.find_by_email(email)
       internal_user && self.message_flags.create(user_id: internal_user.id)
     end

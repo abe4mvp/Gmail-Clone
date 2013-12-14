@@ -2,13 +2,12 @@
 <table class="emails" border="1">
 
   <% @sent_messages.each do |message| %>
-    <tr>
+    <tr class="<%= "bold" unless message.message_flags.last.read %>">
       <td>
         <input type="checkbox" name="selector[]" value="" id="selector[]">
       </td>
       <td>
-        <%# '&hearts;'.html_safe if message.starred %>
-        <%# need to change to star apply for individual users %>
+        <%= '&hearts;'.html_safe if message.message_flags.first.starred %>
       </td>
       <td>
         <%= message.display_recipient_emails  %>

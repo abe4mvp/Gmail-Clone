@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 
     @message = Message.new(params[:message])
 
-    create_sender_flags!
+    create_sender_flags! # move to inside message!
 
     if @message.save
       redirect_to user_url(current_user)

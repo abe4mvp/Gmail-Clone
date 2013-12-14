@@ -16,11 +16,11 @@ class UsersController < ApplicationController
 
    def show
 
-     @sent_messages = current_user.sent_messages
+     @sent_messages = current_user.sent_messages.includes(:message_flags)
 
      #once recipient_ids are being populated from external mail u can replace with that
-     user_email = "%;#{current_user.email}%"
-     @received_messages = Message.where("recipient_emails like ?", user_email)
+     q_email = "%;#{current_user.email}%"
+     @received_messages = Message.where("recipient_emails like ?", q_email).includes(:message_flags)
    end
    #change this later when bootstrapping
 
