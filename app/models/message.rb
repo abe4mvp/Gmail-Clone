@@ -1,6 +1,7 @@
 class Message < ActiveRecord::Base
   attr_accessible :body, :draft, :sender, :sender_id, :subject, :recipient_emails
   # allowing :recipients here lets you created the nested model?
+  before_save :format_recipient_emails
 
   #after_initialize :set_internal_user_id
 
@@ -32,6 +33,10 @@ class Message < ActiveRecord::Base
     return if self.sender_id
     user = User.find_by_email(self.sender)
     user && self.sender_id = user.id
+  end
+
+  def format_recipient_emails
+    self.recipient_emails.gsub!(/\s+/m, ';')
   end
 
 

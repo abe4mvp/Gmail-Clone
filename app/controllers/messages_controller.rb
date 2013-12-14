@@ -3,7 +3,6 @@ class MessagesController < ApplicationController
     imply_sender
 
     parsed_emails = parse_emails_for_outgoing
-    params[:message][:recipient_emails] = params[:recipients]
     @message = Message.new(params[:message])
 
     # create_recipients!(parsed_emails)
@@ -13,7 +12,7 @@ class MessagesController < ApplicationController
       redirect_to users_url(current_user)
 #this is only for rails, it should actually send the emails here during backbone
     else
-      render json: @message.errors.full_messages #+ @message.recipients.errors.full_messages
+      render json: @message.errors.full_messages + @message.recipients.errors.full_messages
     end
   end
 
