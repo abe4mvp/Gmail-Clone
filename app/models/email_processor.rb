@@ -1,11 +1,5 @@
 class EmailProcessor < ApplicationController # to add the logger
   def self.process(email)
-    puts "--------------------started from the bottom now we here!"
-    puts "class = #{email.to.class} "
-    puts "email_addresses = #{email.to} "
-
-
-    puts "recipients: #{recipients}"
 
     message = Message.create({
       body: email.raw_body,
