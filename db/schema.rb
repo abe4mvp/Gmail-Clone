@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213052701) do
+ActiveRecord::Schema.define(:version => 20131214025151) do
 
   create_table "message_flags", :force => true do |t|
     t.integer  "message_id",                    :null => false
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(:version => 20131213052701) do
     t.string   "sender"
     t.integer  "sender_id"
     t.string   "subject"
-    t.boolean  "starred"
     t.string   "recipient_emails"
   end
 

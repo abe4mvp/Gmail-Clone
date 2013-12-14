@@ -18,6 +18,9 @@ class UsersController < ApplicationController
 
    def show
      @sent_messages = current_user.sent_messages
+
+
+     #once recipient_ids are being populated from external mail u can replace with that
      user_email = "%;#{current_user.email}%"
      @received_messages = Message.where("recipient_emails like ?", user_email)
    end
