@@ -26,4 +26,3 @@ class EmailProcessor < ApplicationController # to add the logger
   end
 end
 
-# :body, :draft, :sender, :sender_id, :subject, :recipient_emails

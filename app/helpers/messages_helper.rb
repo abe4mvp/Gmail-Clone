@@ -48,16 +48,6 @@ module MessagesHelper
   # end
 
 
-  # def send_internal_emails(recipients_emails)
-  #
-  #   #validate_email_addresses
-  #   recipient_emails.each do |email_address|
-  #     if email_address.ends_with?("@abemail.net")
-  #       send_internal(email_address)
-  #     end
-  #   end
-  # end
-
   # def send_internal(email_address)
   #   user = User.find_by_email(email_address)
   #   @message.message_flags.new(user_id: user.id)

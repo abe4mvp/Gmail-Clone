@@ -39,8 +39,8 @@ class Message < ActiveRecord::Base
     self.recipient_emails.gsub!(/\s+/m, ';')
   end
 
-  def recipient_emails
-    self.recipient_emails.gsub(';', ' ')
+  def display_recipient_emails
+    self.recipient_emails.gsub(';', ', ')
   end
 
 end
