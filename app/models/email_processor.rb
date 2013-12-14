@@ -1,12 +1,13 @@
 class EmailProcessor < ApplicationController # to add the logger
   def self.process(email)
 
-    message = Message.create({
+    #this will behave differently if recieving an email from an internal abemail user, dont want 2 copies of object
+    message = Message.new({
       body: email.raw_body,
       sender: email.from ,
       draft: false,
       subject: email.subject,
-      recipient_emails: mail.to.join(';')
+      recipient_emails: email.to.join(';')
     })
 
 
