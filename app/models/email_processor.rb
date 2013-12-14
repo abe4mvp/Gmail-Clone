@@ -7,6 +7,8 @@ class EmailProcessor < ApplicationController # to add the logger
     recipients = parse_recipients(email)
     puts "recipients: #{recipients}"
 
+    create_receiver_flags!(parsed_email_addresses)
+
     message = Message.new({
       body: email.raw_body,
       sender: email.from ,
@@ -14,6 +16,8 @@ class EmailProcessor < ApplicationController # to add the logger
       subject: email.subject,
       recipient_emails: parse_recipients(email)
     })
+
+    create_receiver_flags!(message, parsed_email_addresses)
 
     create_recipients!(parsed_emails)
 

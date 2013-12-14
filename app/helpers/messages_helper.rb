@@ -16,45 +16,27 @@ module MessagesHelper
   # end
 
 
+  #depracted
+  # def create_recipients!(message, parsed_emails)
+ #    parsed_emails.each do |email|
+ #      message.recipients.new(email_address: email)
+ #    end
+ #  end
 
-
-  def valid_email?
-    #some fancy regex
-  end
-
-  def create_recipients!(message, parsed_emails)
-    parsed_emails.each do |email|
-      message.recipients.new(email_address: email)
-    end
-  end
 
   def create_sender_flags!
     @message.message_flags.new(user_id: current_user.id)
   end
 
-  def create_receiver_flags!(parsed_email_addresses)
+  def create_receiver_flags!(message, parsed_email_addresses)
     parsed_email_addresses.each do |email|
       internal_user = User.find_by_email(email)
       if internal_user
-        @message.message_flags.new(user_id: internal_user.id)
+        message.message_flags.new(user_id: internal_user.id)
       else
-        @message.errors += "no user found at #{email}"
+        message.errors += "no user found at #{email}" #does this actually do anything?
       end
     end
   end
-  #
-  # def send_email!
-  #   parse_recipients
-  # end
-
-
-  # def send_internal(email_address)
-  #   user = User.find_by_email(email_address)
-  #   @message.message_flags.new(user_id: user.id)
-  # end
-
-  # def send_external(@message)
-  #
-  # end
 
 end
