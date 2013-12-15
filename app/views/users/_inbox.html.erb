@@ -2,7 +2,7 @@
 <table class="emails" border="1">
 
   <% @received_messages.each do |message| %>
-    <tr class="<%= "bold" unless message.message_flags.last.read %>">
+    <tr class="<%= "unread" unless message.message_flags.last.read %>">
       <td>
         <input type="checkbox" name="selector[]" value="" id="selector[]">
       </td>
