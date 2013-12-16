@@ -19,15 +19,28 @@ body {
   margin:10px 25px 10px 20px;
 }
 
-.check, .heart{
+.check{
   width: 20px;
 }
 
-
+.heart {
+  width: 20px;
+}
 
 .heart:hover {
   font-size:19px;
+  line-height:2px;
+  margin:auto;
+
+
 }
+
+.heart-box {
+
+
+}
+
+
 
 .time-tag {
   width: 60px;

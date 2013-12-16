@@ -2,8 +2,10 @@
       <td class="check">
         <input type="checkbox" name="selector[]" value="" id="selector[]">
       </td>
-      <td class="heart" style=color:<%= message.message_flags.first.starred ? "red" : "black"%>>
-        <%= link_to '&hearts;'.html_safe, message_heart_url(message)%>
+      <td class="heart" style=color:<%= message.message_flags.first.heart ? "red" : "black"%>>
+        <div class="heart-box">
+        <%= link_to '&hearts;'.html_safe, message_heart_url(message), method: :put %>
+        </div>
       </td>
       <% if sent %>
         <td class="to">TO: <%= message.display_recipient_emails %></td>
@@ -22,3 +24,5 @@
       </td>
 
     </tr>
+
+

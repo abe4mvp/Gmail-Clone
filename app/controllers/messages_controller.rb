@@ -14,23 +14,10 @@ class MessagesController < ApplicationController
     end
   end
 
-  def incoming
-    #decide what to do based on the extension of the from email
-    #this is not how it will work for real messages
-    @message = Message.find(params[:message])
-    #replace with a create to define @message, rest of this method is dependent
-    parsed_email_addresses = parse_emails_from_incoming
-
-
-
-    create_receiver_flags!(parsed_email_addresses)
-
-    create_recipients! unless User.find_by_email(@message.sender)
-    if @message.save
-      redirect_to user_url(current_user.id)
-    else
-      render json: @message.errors.full_messages
-    end
+  def heart
+    flag = MessageFlag.find_by_user_id_and_message_id(current_user, params[:message_id])
+    flag && flag.toggle_heart
+    redirect_to user_url(current_user)
   end
 
   def show

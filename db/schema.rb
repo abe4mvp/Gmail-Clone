@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131214025151) do
+ActiveRecord::Schema.define(:version => 20131216060757) do
 
   create_table "message_flags", :force => true do |t|
     t.integer  "message_id",                    :null => false
     t.integer  "user_id",                       :null => false
-    t.boolean  "starred",    :default => false
+    t.boolean  "heart",      :default => false
     t.boolean  "read",       :default => false
     t.boolean  "trashed",    :default => false
     t.datetime "created_at",                    :null => false

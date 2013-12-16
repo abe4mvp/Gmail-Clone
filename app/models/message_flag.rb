@@ -1,5 +1,5 @@
 class MessageFlag < ActiveRecord::Base
-  attr_accessible :message_id, :read, :starred, :trashed, :user_id
+  attr_accessible :message_id, :read, :heart, :trashed, :user_id
 
   belongs_to(
   :message,
@@ -10,4 +10,9 @@ class MessageFlag < ActiveRecord::Base
   )
 
   belongs_to :user
+
+  def toggle_heart
+    self.heart = self.heart ? false : true
+    self.save!
+  end
 end
