@@ -1,12 +1,23 @@
+<section id="main group">
+  <section id="sidebar">
+    <ul>
+      <li><%= link_to "Inbox", "#"%></li>
+      <li><%= link_to "Impotant", "#"%></li>
+      <li><%= link_to "Sent", "#"%></li>
+      <li><%= link_to "Draft", "#"%></li>
+      <li><%= link_to "Trash", "#"%></li>
+    </ul>
+  </section>
+<%# render :partial => 'option_buttons' %>
+  <section id="mailbox">
+  <%= render :partial => 'inbox' %>
 
-<%= render :partial => 'option_buttons' %>
-
-<%= render :partial => 'inbox' %>
 
 
+  <%= render :partial => 'sent_box' %>
+  </section>
+</section>
 
-<%= render :partial => 'sent_box' %>
-
-
+<section id="compose">
 <%# render partial: "new_email" %>
-
+</section>
