@@ -1,5 +1,5 @@
 
-<% preview = message.body.squeeze.slice(0, 300 - message.subject.length) %>
+<% preview = message.body.squeeze.slice(0, (150 - message.subject.length)) %>
 
 <span>
   <% if message.subject.length > 0 %>

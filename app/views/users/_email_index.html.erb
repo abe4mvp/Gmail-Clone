@@ -2,8 +2,8 @@
       <td class="check">
         <input type="checkbox" name="selector[]" value="" id="selector[]">
       </td>
-      <td class="heart">
-        <%= '&hearts;'.html_safe if message.message_flags.first.starred %>
+      <td class="heart" style=color:<%= message.message_flags.first.starred ? "red" : "black"%>>
+        &hearts;
       </td>
       <% if sent %>
         <td class="to">TO: <%= message.display_recipient_emails %></td>
