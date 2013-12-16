@@ -56,7 +56,7 @@ body {
 }
 .preview {
   overflow:hidden;
-  min-width:300px;
+  min-width:200px;
 
   height:40px;
 }
@@ -160,6 +160,7 @@ marquee {
 .header-wrap {
   width:100%;
   height:60px;
+  min-width:760px;
 }
 
 .header-wrap img {
@@ -170,8 +171,8 @@ marquee {
 }
 
 #search {
-  width:590px;
-  min-width:20px;
+  width:30%;
+  min-width:300px;
   height:30px;
   font-size:12px;
   margin-top:12px;
@@ -202,27 +203,43 @@ marquee {
   margin:auto;
   height:100%;
   width:100%;
+  min-width:1500px;
 }
 
-#main * {
-  //border:1px solid white;
-}
+
 
 #sidebar {
   float:left;
-  width:200px;
+  width:170px;
 
   height:100%;
-  padding:10px 0 10px 10px;
+  padding:10px 0px 10px 5px;
 }
-#sidebar li {
-  padding-top:10px;
+
+#sidebar li{
+  margin:2px;
+  width:140px;
+  padding:10px 5px 10px 10px ;
+  opacity: 0.8;
+   /*Transition*/
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+#sidebar li:hover {
+  opacity: 1;
+  /*Glow*/
+  -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+  -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+  box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
 }
 
 #mailbox {
-  //float:left;
-  padding-left:230px;
+  float:left;
 
+  min-width:550px;
+  width:1300px;
 }
 
 //menu
@@ -232,4 +249,11 @@ marquee {
   width:100%;
   height:40px;
   padding-left:230px;
+}
+
+
+//compose
+
+#compose {
+  float:right;
 }
