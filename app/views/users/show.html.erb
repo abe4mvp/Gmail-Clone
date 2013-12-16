@@ -6,13 +6,7 @@
   </section>
 
   <section class="group" id="sidebar">
-    <ul>
-      <li><%= link_to "Inbox", "#"%></li>
-      <li><%= link_to "Impotant", "#"%></li>
-      <li><%= link_to "Sent", "#"%></li>
-      <li><%= link_to "Draft", "#"%></li>
-      <li><%= link_to "Trash", "#"%></li>
-    </ul>
+    <%= render :partial => 'sidebar' %>
   </section>
 
   <section id="mailbox">

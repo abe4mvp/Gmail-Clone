@@ -1,0 +1,9 @@
+<ul>
+
+  <% inbox_count = @received_messages.count(conditions: "flags.read = false", include: :flags) %>
+  <li><%= link_to "Inbox (#{inbox_count})", "#"%></li>
+  <li><%= link_to "Impotant", "#"%></li>
+  <li><%= link_to "Sent", "#"%></li>
+  <li><%= link_to "Draft", "#"%></li>
+  <li><%= link_to "Trash", "#"%></li>
+</ul>

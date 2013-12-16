@@ -11,7 +11,7 @@ if ARGV.length < 2
 end
 
 dev_extension = 'dev'
-filetypes = ['css','html','htm','php','rb','erb','less','js']
+filetypes = ['css','html','htm','php','rb','erb','less','js', 'scss']
 watch_folder = ARGV[0]
 keyword = ARGV[1]
 puts "Watching #{watch_folder} and subfolders for changes in project files..."
