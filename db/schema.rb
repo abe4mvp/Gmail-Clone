@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131216060757) do
+ActiveRecord::Schema.define(:version => 20131216063003) do
 
-  create_table "message_flags", :force => true do |t|
+  create_table "flags", :force => true do |t|
     t.integer  "message_id",                    :null => false
     t.integer  "user_id",                       :null => false
     t.boolean  "heart",      :default => false
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(:version => 20131216060757) do
     t.datetime "updated_at",                    :null => false
   end
 
-  add_index "message_flags", ["message_id"], :name => "index_message_flags_on_message_id"
-  add_index "message_flags", ["user_id"], :name => "index_message_flags_on_user_id"
+  add_index "flags", ["message_id"], :name => "index_message_flags_on_message_id"
+  add_index "flags", ["user_id"], :name => "index_message_flags_on_user_id"
 
   create_table "messages", :force => true do |t|
     t.text     "body"

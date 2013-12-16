@@ -25,8 +25,8 @@ class Message < ActiveRecord::Base
   )
 
   has_many(
-    :message_flags,
-    class_name: "MessageFlag",
+    :flags,
+    class_name: "Flag",
     foreign_key: :message_id,
     primary_key: :id,
     inverse_of: :message
@@ -51,7 +51,7 @@ class Message < ActiveRecord::Base
   def create_receiver_flags
     self.recipient_emails.split(';').slice(1..-1).each do |email|
       internal_user = User.find_by_email(email)
-      internal_user && self.message_flags.create(user_id: internal_user.id)
+      internal_user && self.flags.create(user_id: internal_user.id)
     end
   end
 

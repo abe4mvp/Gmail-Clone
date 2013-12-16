@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
   end
 
   def heart
-    flag = MessageFlag.find_by_user_id_and_message_id(current_user, params[:message_id])
+    flag = Flag.find_by_user_id_and_message_id(current_user, params[:message_id])
     flag && flag.toggle_heart
     redirect_to user_url(current_user)
   end

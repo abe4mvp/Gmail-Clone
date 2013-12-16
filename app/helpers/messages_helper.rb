@@ -25,7 +25,7 @@ module MessagesHelper
 
 
   def create_sender_flags!
-    @message.message_flags.new(user_id: current_user.id)
+    @message.flags.new(user_id: current_user.id)
   end
 
 

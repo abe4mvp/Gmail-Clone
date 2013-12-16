@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   before_create :downcase_email
 
-  has_many :message_flags
+  has_many :flags
 
   has_many(
     :sent_messages,
@@ -32,12 +32,12 @@ class User < ActiveRecord::Base
   has_many :received_messages, through: :recipients, source: :message
 
   def inbox
-    self.sent_messages.order(:created_at).includes(:message_flags)
+    self.sent_messages.order(:created_at).includes(:flags)
   end
 
   def sent
     q_email = "%;#{self.email}%"
-    Message.where("recipient_emails like ?", q_email).includes(:message_flags).sort_by {|m| m.created_at }
+    Message.where("recipient_emails like ?", q_email).includes(:flags).sort_by {|m| m.created_at }
   end
 
 

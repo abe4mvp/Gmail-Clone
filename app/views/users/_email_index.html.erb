@@ -1,8 +1,8 @@
-<tr class="<%= "unread" unless message.message_flags.first.read %>">
+<tr class="<%= "unread" unless message.flags.first.read %>">
       <td class="check">
         <input type="checkbox" name="selector[]" value="" id="selector[]">
       </td>
-      <td class="heart" style=color:<%= message.message_flags.first.heart ? "red" : "black"%>>
+      <td class="heart" style=color:<%= message.flags.first.heart ? "red" : "black"%>>
         <div class="heart-box">
         <%= link_to '&hearts;'.html_safe, message_heart_url(message), method: :put %>
         </div>
