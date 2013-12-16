@@ -2,9 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background-color:black;
+  background-color:#686868;
   color:white;
   font-family:sans-serif;
+  background-image:url('Crysis.jpg');
+  //background-repeat:no-repeat;
+  background-size:100%;
+
 }
 
 
@@ -61,6 +65,7 @@ body {
 .emails tr {
   background-color:#171515;
   height:40px;
+  opacity:.8;
 }
 .emails td {
   font-size:14px;
