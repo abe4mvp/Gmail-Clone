@@ -8,20 +8,25 @@ class UsersController < ApplicationController
 
      if @user.save
        self.current_user = @user
-       redirect_to user_url(@user)
+       redirect_to inbox_user_url(@user)
      else
        render :json => @user.errors.full_messages
      end
    end
 
-   def show
-
-     @sent_messages = current_user.sent
-
-     #once recipient_ids are being populated from external mail u can replace with that
-
-     @received_messages = current_user.inbox
+   def inbox
+     @messages = current_user.inbox
+     render :show
    end
    #change this later when bootstrapping
+
+   def sent
+     @messages = current_user.sent
+     render :show
+   end
+
+   def favorite
+     # @message = current_user.favorite
+   end
 
 end

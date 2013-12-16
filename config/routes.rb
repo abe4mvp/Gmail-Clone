@@ -1,6 +1,13 @@
 AbeMail::Application.routes.draw do
 
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create] do
+    member do
+      get 'inbox'
+      get 'sent'
+      get 'favorite'
+      get 'trash'
+    end
+  end
   resource :session, only: [:create, :destroy, :new]
   resources :messages, only: [:create, :show, :update] do
     collection do
@@ -9,7 +16,7 @@ AbeMail::Application.routes.draw do
     put "heart"
   end
 
-  root :to => "sessions#new"
+  root :to => "users#inbox"
 
   #email_processor added automaticaly
 

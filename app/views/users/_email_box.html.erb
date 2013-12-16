@@ -1,0 +1,8 @@
+<table class="emails" border="1">
+  <% @messages.each do |message| %>
+
+    <%= render partial: 'email_row', locals: { message: message } %>
+
+  <% end %>
+</table>
+

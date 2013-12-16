@@ -1,6 +1,0 @@
-<table class="emails" border="1">
-  <% @received_messages.each do |message| %>
-    <%= render partial: 'email_index', locals: { message: message, sent: false } %>
-  <% end %>
-</table>
-

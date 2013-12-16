@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       render :json => "Email or password was wrong"
     else
       self.current_user = user
-      redirect_to user_url(user)
+      redirect_to inbox_user_url(user)
     end
   end
 

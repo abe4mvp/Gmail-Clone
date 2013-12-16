@@ -32,6 +32,10 @@ class Message < ActiveRecord::Base
     inverse_of: :message
   )
 
+  def sent_by?(user_id)
+    self.sender_id == user_id
+  end
+
   def set_internal_user_id
     return if self.sender_id
     user = User.find_by_email(self.sender)
