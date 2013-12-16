@@ -1,2 +1,9 @@
-<%= link_to message.subject != "" ? message.subject : "click", message_url(message) %> -
-<%= message.body.squeeze.slice(0, 300 - message.subject.length) %>
+
+<% preview = message.body.squeeze.slice(0, 300 - message.subject.length) %>
+
+<span>
+  <% if message.subject.length > 0 %>
+  <span class="bold"><%= message.subject %> - </span>
+  <% end %>
+  <%= preview %>
+</span>

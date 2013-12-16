@@ -1,6 +1,13 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color:black;
+  color:white;
+  font-family:sans-serif;
+}
+
+
 .emails {
   font-size:12px;
   color:#fbfbfb;
@@ -8,6 +15,32 @@
   border-width: 1px;
   border-color: #686767;
   border-collapse: collapse;
+  float:right;
+  margin:10px 25px 10px 20px;
+}
+
+.check, .heart{
+  width: 20px;
+}
+
+.heart {
+  color:red;
+}
+
+.time-tag {
+  width: 60px;
+  text-align:right;
+}
+.from, .to {
+  width:200px;
+}
+
+.preview {
+
+}
+
+.bold {
+  font-size:1.3em;
 }
 
 
@@ -17,7 +50,7 @@
 }
 .emails td {
   font-size:12px;
-  border-width: 1px;
+  border-bottom: 1px;
   padding: 8px;
   border-style: solid;
   border-color: #686767;

@@ -1,20 +1,6 @@
-<h2>Inbox:</h2>
 <table class="emails" border="1">
-
   <% @received_messages.each do |message| %>
-    <tr class="<%= "unread" unless message.message_flags.last.read %>">
-      <td>
-        <input type="checkbox" name="selector[]" value="" id="selector[]">
-      </td>
-      <td>
-        <%= '&hearts;'.html_safe if message.message_flags.first.starred %>
-      </td>
-      <td><%= message.sender %></td>
-      <td>
-        <%= render partial: 'message_preview', locals: { message: message }%>
-      </td>
-      <td><%= time_tag(message.created_at, format:'%B %d, %l:%M %p') %></td>
-    </tr>
+    <%= render partial: 'email_index', locals: { message: message, sent: false } %>
   <% end %>
 </table>
 
