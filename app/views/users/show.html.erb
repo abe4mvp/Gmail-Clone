@@ -1,5 +1,11 @@
 <section id="main" class="group">
-  <section id="sidebar">
+
+
+  <section  id="menu">
+    <%= render :partial => 'option_buttons' %>
+  </section>
+
+  <section class="group" id="sidebar">
     <ul>
       <li><%= link_to "Inbox", "#"%></li>
       <li><%= link_to "Impotant", "#"%></li>
@@ -7,10 +13,6 @@
       <li><%= link_to "Draft", "#"%></li>
       <li><%= link_to "Trash", "#"%></li>
     </ul>
-  </section>
-
-  <section class="group" id="menu">
-    <%= render :partial => 'option_buttons' %>
   </section>
 
   <section id="mailbox">

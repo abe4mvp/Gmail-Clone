@@ -171,6 +171,7 @@ marquee {
 
 #search {
   width:590px;
+  min-width:20px;
   height:30px;
   font-size:12px;
   margin-top:12px;
@@ -196,29 +197,38 @@ marquee {
 //page
 
 #main {
-  width:1000px;
+  width:100%;
   padding:5px;
   margin:auto;
-height:100%;
+  height:100%;
+  width:100%;
+}
+
+#main * {
+  //border:1px solid white;
 }
 
 #sidebar {
   float:left;
   width:200px;
-  border:2px solid white;
+
   height:100%;
+  padding:10px 0 10px 10px;
 }
 #sidebar li {
   padding-top:5px;
 }
 
 #mailbox {
-  float:right;
+  //float:left;
+  padding-left:230px;
+
 }
 
 //menu
 
 #menu {
   display:block;
-
+  width:100%;
+  height:50px;
 }
