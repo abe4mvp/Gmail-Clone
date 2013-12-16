@@ -5,8 +5,8 @@ AbeMail::Application.routes.draw do
   resources :messages, only: [:create, :show, :update] do
     collection do
       post "outgoing"
-      get "incoming" #change back to post?
     end
+    resources :message_flags, only: [:update]
   end
 
   root :to => "sessions#new"

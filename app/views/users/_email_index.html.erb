@@ -10,10 +10,15 @@
       <% else %>
         <td class="from"><%= message.sender %></td>
       <% end %>
+
+
       <td class="preview">
-        <%= render partial: 'message_preview', locals: { message: message }%>
+       <a href="<%= message_url(message)%>">
+         <%= render partial: 'message_preview', locals: { message: message }%>
+        </a>
       </td>
       <td class="time-tag">
         <%= time_tag(message.created_at, format: message.created_at.today? ?  '%l:%M %p' : '%b %d') %>
       </td>
+
     </tr>

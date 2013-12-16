@@ -11,7 +11,7 @@ body {
 .emails {
   font-size:12px;
   color:#fbfbfb;
-  width:90%;
+  width:80%;
   border-width: 1px;
   border-color: #686767;
   border-collapse: collapse;
@@ -64,6 +64,30 @@ body {
   font-weight:bold;
   background-color:#2f2f2f;
 }
+
+//marquee:hover {
+//    width: 50px; white-space: nowrap;
+//    overflow: hidden;
+//    overflow-x:-webkit-marquee;
+//    -webkit-marquee-direction: forwards;
+//    -webkit-marquee-style: scroll;
+//    -webkit-marquee-speed: normal;
+//    -webkit-marquee-increment: small;
+//    -webkit-marquee-repetition: 5;
+//    overflow-x: marquee-line;
+//    marquee-direction: forward;
+//    marquee-style: scroll;
+//    marquee-speed: normal;
+//    marquee-play-count: 5;
+//}
+
+marquee {
+  -webkit-marquee-style: none;
+}
+
+
+
+marquee
 
 
 
