@@ -8,10 +8,13 @@
       <li><%= link_to "Trash", "#"%></li>
     </ul>
   </section>
-<%# render :partial => 'option_buttons' %>
+
+  <section id="menu">
+    <%= render :partial => 'option_buttons' %>
+  </section>
+
   <section id="mailbox">
   <%= render :partial => 'inbox' %>
-
 
 
   <%= render :partial => 'sent_box' %>

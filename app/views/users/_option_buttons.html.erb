@@ -1,12 +1,17 @@
 
 <%# this is temporary will be replaced in javascript/backbone %>
-<div id="more-options">
-  <%= button_to "Trash"%>
-  More
-  <ul id="dropdown">
-    <li>Mark as Read</li>
-    <li>Mark as Unread</li>
-    <li>Add Star</li>
-    <li>Remove Star</li>
-  </ul>
-</div>
+
+<ul id="buttons">
+  <li>
+    <%= button_to "Trash"%>
+  </li>
+  <li id="more">
+    More
+    <ul id="dropdown">
+      <li>Mark as Read</li>
+      <li>Mark as Unread</li>
+      <li>Add Star</li>
+      <li>Remove Star</li>
+    </ul>
+  </li>
+</ul>

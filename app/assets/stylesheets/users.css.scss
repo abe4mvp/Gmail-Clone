@@ -107,16 +107,19 @@ marquee {
 
 
 
-#more-options:hover  {
+#more-options {
   position: relative;
 
 }
-#more-options {
+#buttons {
   display: block;
 }
 
-#more-options:hover  > #dropdown {
+#more:hover  > #dropdown {
   display: block;
+}
+#buttons li{
+  float:left;
 }
 
 
@@ -125,6 +128,7 @@ marquee {
   position: absolute;
   color: black;
   width: 260px;
+  z-index:1;
 
 }
 
@@ -133,6 +137,7 @@ marquee {
   width: 240px;
   background: white;
   border-right: 3px solid black;
+
 }
 
 #dropdown li:nth-child(odd){
@@ -201,4 +206,11 @@ height:100%;
 
 #mailbox {
   float:right;
+}
+
+//menu
+
+#menu {
+  display:block;
+
 }
