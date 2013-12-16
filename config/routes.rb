@@ -6,7 +6,7 @@ AbeMail::Application.routes.draw do
     collection do
       post "outgoing"
     end
-    resources :message_flags, only: [:update]
+    put "heart"
   end
 
   root :to => "sessions#new"

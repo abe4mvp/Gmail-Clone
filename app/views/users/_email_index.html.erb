@@ -3,7 +3,7 @@
         <input type="checkbox" name="selector[]" value="" id="selector[]">
       </td>
       <td class="heart" style=color:<%= message.message_flags.first.starred ? "red" : "black"%>>
-        &hearts;
+        <%= link_to '&hearts;'.html_safe, message_heart_url(message)%>
       </td>
       <% if sent %>
         <td class="to">TO: <%= message.display_recipient_emails %></td>

@@ -23,21 +23,21 @@ body {
   width: 20px;
 }
 
-.heart {
-  color:red;
+
+
+.heart:hover {
+  font-size:19px;
 }
 
 .time-tag {
   width: 60px;
   text-align:right;
 }
+
 .from, .to {
   width:200px;
 }
 
-.preview {
-
-}
 
 .bold {
   font-size:1.3em;
@@ -52,7 +52,7 @@ body {
 .emails td {
   font-size:14px;
   border-bottom: 1px;
-  padding: 8px;
+  padding: 6px;
   border-style: solid;
   border-color: #686767;
 }
@@ -84,11 +84,6 @@ body {
 marquee {
   -webkit-marquee-style: none;
 }
-
-
-
-marquee
-
 
 
 
