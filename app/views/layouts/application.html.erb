@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> abemail </title>
+  <title>abemail</title>
   <%# to add themes toggle the included css sheet here %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_user %>
-<header><!DOCTYPE html>
-<html>
-<head>
-  <title> abemail </title>
-  <%# to add themes toggle the included css sheet here %>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% if current_user %>
+
+
+
+  <% if !current_user.nil? %>
 <header>
   <div class="header-wrap group">
 
@@ -39,6 +31,8 @@
   <% end %>
 
 
+<%= yield %>
+
   <style>
 
   body {
@@ -51,9 +45,7 @@
     width:100%;
     height:60px;
   }
-  .header-wrap * {
-    display:inline-block;
-  }
+
   .header-wrap img {
     height:50px;
     width:auto;
@@ -75,58 +67,42 @@
   }
 
 
-  </style>
-
-
-<%= yield %>
-
-</body>
-</html>
-
-  <div class="header-wrap group">
-
-    <img src="../../assets/images/AbeMail.png" alt="AbeMail">
-    <input type="text" name="search" placeholder="What are you looking for?" id="search">
-    <input type="submit" value="Search">
-
-
-    <ul class="header-right group">
-      <li><%= current_user.name %></li>
-      <li><%= button_to "Logout", session_url, :method => :delete %></li>
-    </ul>
-
-
-  </div>
-</header>
-  <% end %>
-
-
-  <style>
+  /**/
 
   body {
-    background-color:gray;
+    background-color:black;
+    font-color:white;
   }
+
 
   /* top-bar */
 
+
   .header-wrap {
     width:100%;
-  }
-  .header-wrap * {
-    dsiplay:inline-block;
+    border:1px solid black;
+
   }
 
-  header h1 {
-    float:left;
-    margin-right:20px;
-    font-size:25px;
+  .header-left  {
+
   }
+
+  header img {
+    float:left;
+    margin:7px 20px 0 20px;
+  }
+
+
+
 
   #search {
     width:590px;
     height:30px;
-
+    margin-top:12px;
+    font-size:12px;
   }
+
   .header-right {
     float:right;
   }
@@ -135,11 +111,17 @@
     float:left;
   }
 
+  .header-right {
+    height:auto;
+    vertical-align:auto;
+  }
+
 
   </style>
 
 
-<%= yield %>
+
 
 </body>
 </html>
+
