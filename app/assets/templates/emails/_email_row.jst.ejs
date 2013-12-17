@@ -7,7 +7,7 @@
   <% var redClass = message.get('flags').get('heart') === true ? 'red' : "" %>
   <td class="heart <%= redClass %>" >
     <div class="heart-box">
-      <a href="/messages/" + "<%= message.get('id') %>" + "/heart" data-method="put" rel="nofollow">♥</a>
+      ♥
     </div>
   </td>
 
@@ -17,12 +17,10 @@
     <td class="from"><%= message.get('display_recipient_emails') %></td>
   <% }; %>
   <td class="preview">
-    <a href="/messages/" + "<%= message.id %>">
-      <%= JST['emails/_message_preview']({ message: message}) %>
-    </a>
+    <%= JST['emails/_message_preview']({ message: message}) %>
   </td>
   <td class="time-tag">
-    <time datetime="how?????"><%= message.get('time_stamp') %></time>
+    <time datetime="ruby datetime helper method"><%= message.get('time_stamp') %></time>
   </td>
 
 </tr>
