@@ -1,5 +1,5 @@
 
-
+<% console.log(message.get('flags')) %>
 <% var unreadClass = message.get('flags')[0].read === false ? 'unread ' : "" %>
 <tr class="<%= unreadClass %>">
   <td class="check">
@@ -8,11 +8,9 @@
   <% var redClass = message.get('flags')[0].heart === true ? 'red' : "" %>
   <td class="heart <%= redClass %>" >
     <div class="heart-box">
-      <a href="/messages/" + "<%= message.id %>" + "/heart" data-method="put" rel="nofollow">♥</a>
+      <a href="/messages/" + "<%= message.get('id') %>" + "/heart" data-method="put" rel="nofollow">♥</a>
     </div>
   </td>
-  <% console.log('user =', AbeMail.user) %>
-  <% console.log('sender =', message.get('sender_id')) %>
 
   <% if ( message.get('sender_id') == AbeMail.userId ) { %>
     <td class="to">TO: <%= message.get('sender') %></td>

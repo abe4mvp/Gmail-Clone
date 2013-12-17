@@ -41,7 +41,7 @@ class MessagesController < ApplicationController
   def sent
     @messages = current_user.sent
 
-    respond_with(@messages)
+    render json: @messages.to_json(include: :flags)
   end
 
   def favorite
