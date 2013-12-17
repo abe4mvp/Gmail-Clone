@@ -1,0 +1,6 @@
+<span>
+  <% if (message.get('subject').length > 0) { %>
+  <span class="bold"><%= message.escape('subject') %> - </span>
+  <% } %>
+    <%= message.escape('preview') %>
+</span>

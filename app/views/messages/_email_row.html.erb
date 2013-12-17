@@ -2,7 +2,7 @@
       <td class="check">
         <input type="checkbox" name="selector[]" value="" id="selector[]">
       </td>
-      <td class="heart " <%= "red" if message.flags.first.heart %>>
+      <td class="heart  <%= "red" if message.flags.first.heart %>">
         <div class="heart-box">
         <%= link_to '&hearts;'.html_safe, message_heart_url(message), method: :put %>
         </div>

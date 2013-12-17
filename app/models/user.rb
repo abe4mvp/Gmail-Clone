@@ -31,13 +31,14 @@ class User < ActiveRecord::Base
 
   has_many :received_messages, through: :recipients, source: :message
 
-  def inbox
-    self.sent_messages.order(:created_at).includes(:flags)
+  def sent
+    self.sent_messages.includes(:flags).merge( Flag.where(user_id: self.id)).sort_by {|m| m.created_at }
   end
 
-  def sent
+  def inbox
     q_email = "%;#{self.email}%"
-    Message.where("recipient_emails like ?", q_email).includes(:flags).sort_by {|m| m.created_at }
+    sent_messages = Message.where("recipient_emails like ?", q_email)
+    sent_messages.includes(:flags).merge( Flag.where(user_id: self.id)).sort_by {|m| m.created_at }
   end
 
 

@@ -1,0 +1,29 @@
+
+
+<% var unreadClass = message.get('flags')[0].read === false ? 'unread ' : "" %>
+<tr class="<%= unreadClass %>">
+  <td class="check">
+    <input type="checkbox" name="selector[]" value="" id="selector[]">
+  </td>
+  <% var redClass = message.get('flags')[0].heart === true ? 'red' : "" %>
+  <td class="heart <%= redClass %>" >
+    <div class="heart-box">
+      <a href="/messages/" + "<%= message.id %>" + "/heart" data-method="put" rel="nofollow">♥</a>
+    </div>
+  </td>
+  <% console.log(message.get('sender_id')) %>
+  <% if ( message.get('sender_id') === AbeMail.userId ) { %>
+    <td class="from"><%= message.get('sender') %></td>
+  <% } else { %>
+    <td class="to">TO: <%= message.get('display_recipient_emails') %></td>
+  <% }; %>
+  <td class="preview">
+    <a href="/messages/" + "<%= message.id %>">
+      <%= JST['emails/_message_preview']({ message: message}) %>
+    </a>
+  </td>
+  <td class="time-tag">
+    <time datetime="how?????"><%= message.get('time_stamp') %></time>
+  </td>
+
+</tr>

@@ -14,7 +14,6 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
     emailIndex.fetch({
       url: 'messages/sent',
       success: function (coll, resp) {
-        console.log(coll);
         var emailIndexView = new AbeMail.Views.EmailsIndex({
           collection: emailIndex
         });
