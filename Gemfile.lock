@@ -84,6 +84,8 @@ GEM
     multi_json (1.8.2)
     pg (0.17.0)
     polyglot (0.3.3)
+    rabl (0.9.3)
+      activesupport (>= 2.3.14)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -140,12 +142,14 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 3.2.1)
+  ejs
   figaro
   griddler
   jquery-rails
   json
   letter_opener
   pg
+  rabl
   rails (= 3.2.13)
   rest-client
   sass-rails (~> 3.2.3)

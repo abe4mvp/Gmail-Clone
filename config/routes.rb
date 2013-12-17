@@ -5,6 +5,7 @@ AbeMail::Application.routes.draw do
       get 'inbox'
       get 'sent'
       get 'favorite'
+      get 'draft'
       get 'trash'
     end
   end

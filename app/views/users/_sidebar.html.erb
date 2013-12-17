@@ -4,9 +4,9 @@
     <% conditions: "flags.read = false AND messages.sender_id != #{current_user.id}", %>
     <% include: :flags %>
   <% )  %>
-  <li><%= link_to "Inbox (#{inbox_count})", inbox_user_url(current_user)%></li>
-  <li><%= link_to "Impotant", favorite_user_url(current_user)%></li>
-  <li><%= link_to "Sent", sent_user_url(current_user)%></li>
-  <li><%= link_to "Draft", "#"%></li>
-  <li><%= link_to "Trash", trash_user_url(current_user)%></li>
+  <li><%= link_to "Inbox (#{inbox_count})", inbox_user_url(current_user), remote: true%></li>
+  <li><%= link_to "Impotant", favorite_user_url(current_user), remote: true%></li>
+  <li><%= link_to "Sent", sent_user_url(current_user), remote: true%></li>
+  <li><%= link_to "Draft", draft_user_url(current_user), remote: true%></li>
+  <li><%= link_to "Trash", trash_user_url(current_user), remote: true%></li>
 </ul>

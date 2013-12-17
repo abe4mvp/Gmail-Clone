@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'backbone-on-rails'
+gem 'rabl'
 
 
 # Gems used only for assets and not required
@@ -33,6 +34,7 @@ gem 'griddler'
 gem 'figaro'
 gem 'rest-client'
 gem 'json'
+gem 'ejs'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', :require => 'bcrypt'
