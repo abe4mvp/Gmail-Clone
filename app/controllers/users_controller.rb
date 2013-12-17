@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_current_user!, only: [:show]
-  respond_to
+  respond_to :html, :json
 
    def create
      validate_extension
@@ -19,8 +19,8 @@ class UsersController < ApplicationController
      @messages = current_user.inbox
 
      respond_to do |format|
-       format.html render :show
-       format.json respond_with(@messages)
+       format.html { render :show }
+       format.json { render json: @messages }
      end
 
    end

@@ -1,5 +1,8 @@
 AbeMail.Collections.Emails = Backbone.Collection.extend({
-
-  model: AbeMail.Models.Email
+  initialize: function (url_ext) {
+    this.url += url_ext
+  },
+  model: AbeMail.Models.Email,
+  url: '/users'
 
 });

@@ -1,18 +1,15 @@
 AbeMail::Application.routes.draw do
 
-  resources :users, only: [:create] do
-    member do
+  resources :users, only: [:create]
+  resource :session, only: [:create, :destroy, :new]
+  resources :messages, only: [:create, :show, :update] do
+    collection do
+      post "outgoing"
       get 'inbox'
       get 'sent'
       get 'favorite'
       get 'draft'
       get 'trash'
-    end
-  end
-  resource :session, only: [:create, :destroy, :new]
-  resources :messages, only: [:create, :show, :update] do
-    collection do
-      post "outgoing"
     end
     put "heart"
   end
