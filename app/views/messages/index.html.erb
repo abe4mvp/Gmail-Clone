@@ -20,19 +20,5 @@
 <%# render partial: "new_email" %>
 </section>
 
-<script>
-$(function (event) {
-
-  var $mailBox = $('#mailbox')
-
-  $('#sidebar').on('ajax:success', 'a', function (event, data) {
-    event.preventDefault();
-    console.log(data);
-    $mailBox.html(data)
-  })
-})
-
-
-</script>
 
 <input type="hidden" id="user_id" value="<%= current_user.id %>">

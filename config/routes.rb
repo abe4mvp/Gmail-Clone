@@ -14,7 +14,7 @@ AbeMail::Application.routes.draw do
     put "heart"
   end
 
-  root :to => "users#inbox"
+  root :to => "messages#inbox"
 
   #email_processor added automaticaly
 

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_current_user!, only: [:show]
-  respond_to :html, :json
+  
 
    def create
      validate_extension
@@ -15,29 +14,6 @@ class UsersController < ApplicationController
      end
    end
 
-   def inbox
-     @messages = current_user.inbox
-
-     respond_to do |format|
-       format.html { render :show }
-       format.json { render json: @messages }
-     end
-
-   end
-   #change this later when bootstrapping
-
-   def sent
-     @messages = current_user.sent
-
-     if request.xhr?
-       render partial: 'email_box', locals: {messages: @messages}
-     else
-       render :show
-     end
-   end
-
-   def favorite
-     # @message = current_user.favorite
-   end
+   
 
 end
