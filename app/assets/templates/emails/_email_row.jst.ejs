@@ -1,11 +1,10 @@
 
-<% console.log(message.get('flags')) %>
-<% var unreadClass = message.get('flags')[0].read === false ? 'unread ' : "" %>
+<% var unreadClass = message.get('flags').get('read') === false ? 'unread ' : "" %>
 <tr class="<%= unreadClass %>">
   <td class="check">
     <input type="checkbox" name="selector[]" value="" id="selector[]">
   </td>
-  <% var redClass = message.get('flags')[0].heart === true ? 'red' : "" %>
+  <% var redClass = message.get('flags').get('heart') === true ? 'red' : "" %>
   <td class="heart <%= redClass %>" >
     <div class="heart-box">
       <a href="/messages/" + "<%= message.get('id') %>" + "/heart" data-method="put" rel="nofollow">♥</a>
