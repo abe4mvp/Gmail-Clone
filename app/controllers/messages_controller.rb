@@ -32,7 +32,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @messages }
+      format.json { respond_with(@messages) }
     end
 
   end

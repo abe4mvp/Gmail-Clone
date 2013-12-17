@@ -1,8 +1,4 @@
 AbeMail.Routers.Emails = Backbone.Router.extend({
-  initialize: function () {
-    // console.log(AbeMail.emails);
-    // console.log(AbeMail.$mailBox);
-  },
 
   routes: {
     'messages/sent': 'sent',
@@ -10,19 +6,37 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
   },
 
   sent: function () {
+    this.getFolder('sent')
+  },
+
+  inbox: function () {
+    this.getFolder('inbox')
+  },
+
+
+  getFolder: function (folderType) {
+    var self = this;
     var emailIndex = new AbeMail.Collections.Emails();
     emailIndex.fetch({
-      url: 'messages/sent',
+      url: 'messages/' + folderType,
       success: function (coll, resp) {
         var emailIndexView = new AbeMail.Views.EmailsIndex({
           collection: emailIndex
         });
-        AbeMail.$mailBox.html(emailIndexView.render().$el);
+
+        AbeMail.$mailBox.html(self._swapView(emailIndexView));
       },
       error: function () {
         console.log('surprise mutha-fucka');
       }
     });
+
+  },
+
+  _swapView: function (newView) {
+    this._currentView && this._currentView.remove();
+    this._currentView = newView;
+    this.$rootEl.html(newView.render().$el);
   }
 
 

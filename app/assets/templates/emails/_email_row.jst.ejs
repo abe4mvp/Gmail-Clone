@@ -11,11 +11,13 @@
       <a href="/messages/" + "<%= message.id %>" + "/heart" data-method="put" rel="nofollow">♥</a>
     </div>
   </td>
-  <% console.log(message.get('sender_id')) %>
-  <% if ( message.get('sender_id') === AbeMail.userId ) { %>
-    <td class="from"><%= message.get('sender') %></td>
+  <% console.log('user =', AbeMail.user) %>
+  <% console.log('sender =', message.get('sender_id')) %>
+
+  <% if ( message.get('sender_id') == AbeMail.userId ) { %>
+    <td class="to">TO: <%= message.get('sender') %></td>
   <% } else { %>
-    <td class="to">TO: <%= message.get('display_recipient_emails') %></td>
+    <td class="from"><%= message.get('display_recipient_emails') %></td>
   <% }; %>
   <td class="preview">
     <a href="/messages/" + "<%= message.id %>">

@@ -9,9 +9,9 @@
       </td>
 
       <% if message.sent_by?(current_user.id) %>
-        <td class="from"><%= message.sender %></td>
+        <td class="to">TO: <%= message.sender %></td>
       <% else %>
-        <td class="to">TO: <%= message.display_recipient_emails %></td>
+        <td class="from"><%= message.display_recipient_emails %></td>
       <% end %>
 
 
@@ -25,5 +25,4 @@
       </td>
 
     </tr>
-
 

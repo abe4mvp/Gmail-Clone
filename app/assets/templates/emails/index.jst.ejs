@@ -1,6 +1,5 @@
 <table class="emails" border="1">
   <tbody>
-  <% console.log(emails) %>
   <% emails.models.forEach(function (message) { %>
 
     <%= JST['emails/_email_row']({ message: message}) %>
