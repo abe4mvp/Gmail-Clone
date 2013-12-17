@@ -1,11 +1,11 @@
 
-<% preview = message.body.squeeze.slice(0, (150 - message.subject.length)) %>
+<% preview =  %>
 
 <span>
   <!-- <marquee> -->
   <% if message.subject.length > 0 %>
   <span class="bold"><%= message.subject %> - </span>
   <% end %>
-  <%= preview %>
+  <%= message.preview %>
   <!-- </marquee> -->
 </span>

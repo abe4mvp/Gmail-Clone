@@ -7,7 +7,7 @@ window.AbeMail = {
     AbeMail.$mailBox = $('#mailbox')
     AbeMail.emails = new AbeMail.Collections.Emails();
     AbeMail.userId = $('#user_id').val();
-    
+
 
     new AbeMail.Routers.Emails();
 

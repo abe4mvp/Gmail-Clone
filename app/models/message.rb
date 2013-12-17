@@ -32,8 +32,16 @@ class Message < ActiveRecord::Base
     inverse_of: :message
   )
 
+  def time_stamp
+    self.created_at.strftime( self.created_at.today? ?  '%l:%M %p' : '%b %d' )
+  end
+
   def sent_by?(user_id)
     self.sender_id == user_id
+  end
+
+  def preview
+    self.body.squeeze.slice(0, (150 - self.subject.length))
   end
 
   def set_internal_user_id

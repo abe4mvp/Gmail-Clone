@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_filter :require_current_user!
-  respond_to :html, :json
+  respond_to  :json, :html
 
   def outgoing #do this in a transaction??
     imply_sender
@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
   def heart
     flag = Flag.find_by_user_id_and_message_id(current_user, params[:message_id])
     flag && flag.toggle_heart
-    redirect_to inbox_messages_u
+    redirect_to inbox_messages_url
   end
 
   def show
@@ -41,8 +41,7 @@ class MessagesController < ApplicationController
   def sent
     @messages = current_user.sent
 
-    render :index
-
+    respond_with(@messages)
   end
 
   def favorite

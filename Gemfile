@@ -7,7 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'backbone-on-rails'
-gem 'rabl'
+gem 'rabl-rails'
 
 
 # Gems used only for assets and not required

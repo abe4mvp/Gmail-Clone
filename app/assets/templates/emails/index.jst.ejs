@@ -1,0 +1,34 @@
+<table class="<%= emails %>" border="1">
+  <tbody>
+  <% emails.forEach function (message) { %>
+    <tr class="<%=  if (message.flags[0].read) { return "unread" };  %>">
+      <td class="check">
+        <input type="checkbox" name="selector[]" value="" id="selector[]">
+      </td>
+      <td class="heart <%= if (message.flags[0].heart) {return "red"}; %>" >
+        <div class="heart-box">
+          <a href="/messages/" + "<%= message.id %>" + "/heart" data-method="put" rel="nofollow">♥</a>
+        </div>
+      </td>
+      <% if ( message.sender_id === AbeMail.userId ) { %>
+        <td class="from"><%= message.sender %></td>
+      <% } else { %>
+        <td class="to"><%= message.display_recipient_emails %></td>
+      <% }; %>
+      <td class="preview">
+        <a href="/messages/" + "<%= message.id %>">
+          <span>
+            <span class="bold"><%= message.subject %> - </span>
+              <%= message.preview %>
+            </span>
+        </a>
+      </td>
+      <td class="time-tag">
+        <time datetime="how?????"><%= message.time_stamp %></time>
+      </td>
+
+    </tr>
+
+  <% }; %>
+  </tbody>
+</table>
