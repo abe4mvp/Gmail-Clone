@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  before_filter :require_current_user!, :only => [:destroy]
+  before_filter :require_current_user!, only: [:destroy]
+  before_filter :require_no_current_user!, only: [:new, :create]
 
   def create
 
@@ -14,7 +15,7 @@ class SessionsController < ApplicationController
       render :json => "Email or password was wrong"
     else
       self.current_user = user
-      redirect_to inbox_user_url(user)
+      redirect_to inbox_messages_url
     end
   end
 

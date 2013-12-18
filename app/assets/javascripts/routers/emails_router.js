@@ -16,13 +16,12 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
 
   getFolder: function (folderType) {
     var self = this;
-    var emailIndex = new AbeMail.Collections.Emails();
-    emailIndex.fetch({
+    AbeMail.emails.fetch({
       url: 'messages/' + folderType,
       success: function (coll, resp) {
 
         var emailIndexView = new AbeMail.Views.EmailsIndex({
-          collection: emailIndex
+          collection: AbeMail.emails
         });
 
         AbeMail.$mailBox.html(self._swapView(emailIndexView));

@@ -4,14 +4,14 @@
       </td>
       <td class="heart  <%= "red" if message.flags.first.heart %>">
         <div class="heart-box">
-        <%= link_to '&hearts;'.html_safe, message_heart_url(message), method: :put %>
+        <%= link_to '&hearts;'.html_safe, favorite_url(message.flags.first), method: :put %>
         </div>
       </td>
 
       <% if message.sent_by?(current_user.id) %>
-        <td class="to">TO: <%= message.sender %></td>
+        <td class="to">TO: <%= message.display_recipient_emails %></td>
       <% else %>
-        <td class="from"><%= message.display_recipient_emails %></td>
+        <td class="from"><%= message.sender %></td>
       <% end %>
 
 

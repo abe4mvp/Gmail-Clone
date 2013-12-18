@@ -18,6 +18,9 @@ module SessionsHelper
     redirect_to new_session_url if current_user.nil?
   end
 
+  def require_no_current_user!
+    redirect_to inbox_messages_url if current_user
+  end
 
 
 end

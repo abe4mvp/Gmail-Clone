@@ -6,7 +6,7 @@ window.AbeMail = {
   initialize: function() {
     AbeMail.$mailBox = $('#mailbox')
     AbeMail.emails = new AbeMail.Collections.Emails();
-    AbeMail.userId = $('#user_id').val();
+    AbeMail.userId = $('#user_id').val(); // better way to do this?
 
 
     new AbeMail.Routers.Emails();

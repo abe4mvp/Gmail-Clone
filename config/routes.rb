@@ -13,6 +13,8 @@ AbeMail::Application.routes.draw do
     end
     put "heart"
   end
+  resources :flags, only: [:update]
+  resources :favorites, only: [:update]
 
   root :to => "messages#inbox"
 

@@ -1,6 +1,6 @@
 
 <% var unreadClass = message.get('flags').get('read') === false ? 'unread ' : "" %>
-<tr class="<%= unreadClass %>">
+<tr class="<%= unreadClass %>" data-id="<%= message.get('id') %>">
   <td class="check">
     <input type="checkbox" name="selector[]" value="" id="selector[]">
   </td>
@@ -10,11 +10,11 @@
       ♥
     </div>
   </td>
-
+  <% console.log(message) %>
   <% if ( message.get('sender_id') == AbeMail.userId ) { %>
-    <td class="to">TO: <%= message.get('sender') %></td>
+    <td class="to">TO: <%= message.get('display_recipient_emails') %></td>
   <% } else { %>
-    <td class="from"><%= message.get('display_recipient_emails') %></td>
+    <td class="from"><%= message.get('sender') %></td>
   <% }; %>
   <td class="preview">
     <%= JST['emails/_message_preview']({ message: message}) %>
