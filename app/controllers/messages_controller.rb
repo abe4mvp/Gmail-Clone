@@ -17,13 +17,6 @@ class MessagesController < ApplicationController
     end
   end
 
-  # def heart
-  #   fail
-  #   flag = Flag.find_by_user_id_and_message_id(current_user, params[:message_id])
-  #   flag && flag.toggle_heart
-  #   redirect_to inbox_messages_url
-  # end
-
   def show
     @message = Message.find(params[:id])
   end
@@ -44,8 +37,10 @@ class MessagesController < ApplicationController
     respond_with(@messages)
   end
 
-  def favorite
-    # @message = current_user.favorite
+  def favorited
+    @messages = current_user.favorited
+
+    respond_with(@messages)
   end
 
   def update

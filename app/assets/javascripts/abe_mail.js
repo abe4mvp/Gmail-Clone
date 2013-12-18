@@ -8,8 +8,7 @@ window.AbeMail = {
     AbeMail.$mailBox = $('#mailbox')
     AbeMail.emails = new AbeMail.Collections.Emails(JSON.parse($('#bootstrap-inbox').html()),{parse: true});
     AbeMail.userId = $('#user_id').val(); // better way to do this?
-    console.log(AbeMail.emails);
-    
+
     new AbeMail.Routers.Emails();
 
 

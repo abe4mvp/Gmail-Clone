@@ -1,9 +1,11 @@
 
 <% var unreadClass = message.get('flags').get('read') === false ? 'unread ' : "" %>
 <tr class="<%= unreadClass %>" data-id="<%= message.get('id') %>">
+
   <td class="check">
     <input type="checkbox" name="selector[]" value="" id="selector[]">
   </td>
+
   <% var redClass = message.get('flags').get('heart') === true ? 'red' : "" %>
   <td class="heart <%= redClass %>" >
     <div class="heart-box">
@@ -11,15 +13,26 @@
     </div>
   </td>
   <% if ( message.get('sender_id') == AbeMail.userId ) { %>
-    <td class="to">TO: <%= message.get('display_recipient_emails') %></td>
+    <td class="show to">
+      <a href="#/messages/<%= message.get('id') %>">
+        TO: <%= message.get('display_recipient_emails') %>
+      </a>
+    </td>
   <% } else { %>
-    <td class="from"><%= message.get('sender') %></td>
+    <td class="show from">
+      <a href="#/messages/<%= message.get('id') %>">
+        <%= message.get('sender') %>
+      </a>
+    </td>
   <% }; %>
-  <td class="preview">
-    <%= JST['emails/_message_preview']({ message: message}) %>
+  <td class="show preview">
+    <a href="#/messages/<%= message.get('id') %>">
+      <%= JST['emails/_message_preview']({ message: message}) %>
+    </a>
   </td>
-  <td class="time-tag">
-    <time datetime="ruby datetime helper method"><%= message.get('time_stamp') %></time>
+  <td class="show time-tag">
+    <a href="#/messages/<%= message.get('id') %>">
+      <time datetime="ruby datetime helper method"><%= message.get('time_stamp') %></time>
+    </a>
   </td>
-
 </tr>

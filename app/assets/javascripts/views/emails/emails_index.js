@@ -8,7 +8,7 @@ AbeMail.Views.EmailsIndex = Backbone.View.extend({
   template: JST['emails/index'],
 
   events: {
-    "click .heart" : "heart"
+    "click .heart": "heart"
   },
 
   render: function () {
@@ -21,15 +21,15 @@ AbeMail.Views.EmailsIndex = Backbone.View.extend({
     return this;
   },
 
-  heart: function (event) {
-    console.log($(event.currentTarget));
 
+
+  heart: function (event) {
     var $heart = $(event.currentTarget)
     var rId =  $heart.closest('tr').attr('data-id');
-    var model = AbeMail.emails.findWhere({id: parseInt(rId)});
-    model.get('flags').toggleHeart().save({}, {
+    var message = AbeMail.emails.findWhere({id: parseInt(rId)});
+    message.get('flags').toggleHeart().save({}, {
       success: function () {
-        console.log($heart.toggleClass('red'));
+        $heart.toggleClass('red');
       },
       error: function () {
         console.log('y u no like?')
