@@ -1,6 +1,7 @@
 AbeMail.Routers.Emails = Backbone.Router.extend({
 
   routes: {
+    "": 'inbox',
     'messages/sent': 'sent',
     'messages/inbox': 'inbox'
   },

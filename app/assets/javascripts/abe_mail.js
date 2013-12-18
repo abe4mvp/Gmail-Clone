@@ -4,11 +4,12 @@ window.AbeMail = {
   Views: {},
   Routers: {},
   initialize: function() {
+
     AbeMail.$mailBox = $('#mailbox')
-    AbeMail.emails = new AbeMail.Collections.Emails();
+    AbeMail.emails = new AbeMail.Collections.Emails(JSON.parse($('#bootstrap-inbox').html()),{parse: true});
     AbeMail.userId = $('#user_id').val(); // better way to do this?
-
-
+    console.log(AbeMail.emails);
+    
     new AbeMail.Routers.Emails();
 
 

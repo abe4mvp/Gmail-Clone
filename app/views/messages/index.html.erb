@@ -11,7 +11,7 @@
 
   <section id="mailbox">
 
-  <%= render partial: 'email_box' %>
+  <%# render partial: 'email_box' %>
 
   </section>
 </section>
@@ -22,3 +22,7 @@
 
 
 <input type="hidden" id="user_id" value="<%= current_user.id %>">
+
+<script type="application/javascript" charset="utf-8" id="bootstrap-inbox">
+  <%= render(file: 'messages/inbox.rabl', object: @messages, formats: :rabl).html_safe %>
+</script>
