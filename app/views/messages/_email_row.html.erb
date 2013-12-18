@@ -4,7 +4,7 @@
       </td>
       <td class="heart  <%= "red" if message.flags.first.heart %>">
         <div class="heart-box">
-        <%= link_to '&hearts;'.html_safe, favorite_url(message.flags.first), method: :put %>
+        <%= link_to '&hearts;'.html_safe, flag_url(message.flags.first), method: :put %>
         </div>
       </td>
 
