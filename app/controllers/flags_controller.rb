@@ -8,11 +8,11 @@ class FlagsController < ApplicationController
     if flag.update_attributes(params[:flag]) #makes this a cool helper
       respond_to do |format|
         format.html { redirect_to inbox_messages_url }
-        format.json { head :ok }
+        format.json { render json: flag}
       end
     else
       puts "something went wrong saving a flag"
-      render status: 500
+      render status: 423
     end
   end
 end

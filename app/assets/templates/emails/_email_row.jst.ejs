@@ -10,7 +10,6 @@
       ♥
     </div>
   </td>
-  <% console.log(message) %>
   <% if ( message.get('sender_id') == AbeMail.userId ) { %>
     <td class="to">TO: <%= message.get('display_recipient_emails') %></td>
   <% } else { %>

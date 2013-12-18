@@ -2,13 +2,13 @@ AbeMail.Views.EmailsIndex = Backbone.View.extend({
   initialize: function () {
     var self = this;
     var renderCallback = this.render.bind(this);
-    this.listenTo(AbeMail.emails, 'change:flags', renderCallback); //not being triggered
+
   },
 
   template: JST['emails/index'],
 
   events: {
-    "click .heart-box" : "heart"
+    "click .heart" : "heart"
   },
 
   render: function () {
@@ -22,9 +22,19 @@ AbeMail.Views.EmailsIndex = Backbone.View.extend({
   },
 
   heart: function (event) {
-    var rId =  $(event.target).closest('tr').attr('data-id');
+    console.log($(event.currentTarget));
+
+    var $heart = $(event.currentTarget)
+    var rId =  $heart.closest('tr').attr('data-id');
     var model = AbeMail.emails.findWhere({id: parseInt(rId)});
-    model.get('flags').toggleHeart().save();
+    model.get('flags').toggleHeart().save({}, {
+      success: function () {
+        console.log($heart.toggleClass('red'));
+      },
+      error: function () {
+        console.log('y u no like?')
+      }
+    });
   }
 
 });
