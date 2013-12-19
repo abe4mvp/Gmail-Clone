@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
 
   recent = lambda { |m| m.created_at }
 
-  def sent
+  def sent #use a lambda here?
     self.sent_messages.includes(:flags).merge(Flag.where(user_id: self.id, trashed: false)).sort_by { |m| m.created_at }
   end
 

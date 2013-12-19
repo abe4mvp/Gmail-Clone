@@ -60,10 +60,10 @@ class Message < ActiveRecord::Base
     self.recipient_emails.gsub(';', ', ').slice(2..-3) # a better way to do this?
   end
 
-  def create_receiver_flags
+  def create_receiver_flags #use a lambda here?
     self.recipient_emails.split(';').slice(1..-1).each do |email|
       internal_user = User.find_by_email(email)
-      if internal_user && (internal_user.id != self.sender_id)
+      if internal_user && (internal_user.id != self.sender_id) #needs testing
         self.flags.new(user_id: internal_user.id)
       end
     end
