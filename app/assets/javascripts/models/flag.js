@@ -2,16 +2,11 @@ AbeMail.Models.Flag = Backbone.Model.extend({
   urlRoot: "/flags",
 
 
-  toggleHeart: function () {
-    var flip = this.get('heart') === true ? false : true;
-    this.set({heart: flip});
+  toggleAttr: function (type) {
+    var flip = this.get(type) === true ? false : true;
+    this.set(type, flip);
     return this;
   },
-
-  markRead: function () {
-    this.set({read: true});
-    return this;
-  }
 
 
 });

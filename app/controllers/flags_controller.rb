@@ -1,5 +1,6 @@
 class FlagsController < ApplicationController
   respond_to :json
+  
   def update
     flag = Flag.find(params[:id])
 

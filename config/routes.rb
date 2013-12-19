@@ -11,7 +11,6 @@ AbeMail::Application.routes.draw do
       get 'draft'
       get 'trash'
     end
-    put "heart"
   end
   resources :flags, only: [:update]
 

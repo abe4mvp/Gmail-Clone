@@ -5,6 +5,7 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
     'messages/sent': 'sent',
     'messages/inbox': 'inbox',
     'messages/favorited': 'favorited',
+    'messages/trash': 'trash',
     'messages/:id': 'show'
   },
 
@@ -12,7 +13,7 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
     var self = this;
 
     var message = AbeMail.emails.findWhere({id: parseInt(id)});
-    message.get('flags').markRead().save({}, {
+    message.get('flags').save({read: true}, {
       success: function () {
         var emailShowView = new AbeMail.Views.EmailShow({
           model: message
@@ -40,6 +41,10 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
     this.getFolder('favorited')
   },
 
+  trash: function () {
+    this.getFolder('trash')
+  },
+
 
   getFolder: function (folderType) {
     var self = this;
@@ -60,8 +65,10 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
 
   },
 
+
+
   _swapView: function (newView) {
-    this._currentView && this._currentView.remove();
+    this._currentView && this._currentView.remove(); // && this.cuurentView.leave
     this._currentView = newView;
     AbeMail.$mailBox.html(newView.render().$el);
   }

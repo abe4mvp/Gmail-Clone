@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
       format.json { respond_with(@messages) }
     end
   end
-  #change this later when bootstrapping
+
 
   def sent
     @messages = current_user.sent
@@ -43,16 +43,22 @@ class MessagesController < ApplicationController
     respond_with(@messages)
   end
 
-  def update
+  def trash
+    @messages = current_user.trash
 
-
-    # @message = Message.find(params[:id])
-#     if @message.update_attributes(params[:message])
-#       redirect_to controller: 'users', action: 'show', id: current_user.id
-#     else
-#       render json: @message.errors.full_messages
-#     end
+    respond_with(@messages)
   end
+
+#   def update
+#
+#
+#     # @message = Message.find(params[:id])
+# #    if @message.update_attributes(params[:message])
+#        redirect_to controller: 'users', action: 'show', id: current_user.id
+#      else
+#       render json: @message.errors.full_messages
+#      end
+#   end
 
   # def destroy
  #    @message = Message.find(params[:id])
