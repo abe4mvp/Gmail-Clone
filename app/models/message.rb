@@ -63,8 +63,8 @@ class Message < ActiveRecord::Base
   def create_receiver_flags
     self.recipient_emails.split(';').slice(1..-1).each do |email|
       internal_user = User.find_by_email(email)
-      if internal_user
-        Flag.find_or_create_by_user_id_and_message_id(user_id: internal_user.id, message_id: self.id)
+      if internal_user && (internal_user.id != self.sender_id)
+        self.flags.new(user_id: internal_user.id)
       end
     end
   end
