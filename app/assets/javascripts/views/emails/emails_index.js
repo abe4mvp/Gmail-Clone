@@ -69,6 +69,10 @@ AbeMail.Views.EmailsIndex = Backbone.View.extend({
         console.log('y u no trash?')
       }
     });
+  },
+
+  leave: function () {
+    $("body").off()
   }
 
 });

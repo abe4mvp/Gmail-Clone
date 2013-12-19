@@ -67,8 +67,8 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
 
 
 
-  _swapView: function (newView) {
-    this._currentView && this._currentView.remove(); // && this.cuurentView.leave
+  _swapView: function (newView) { //is this actually doing anything??
+    this._currentView && this._currentView.remove();// this.currentView.leave()
     this._currentView = newView;
     AbeMail.$mailBox.html(newView.render().$el);
   }
