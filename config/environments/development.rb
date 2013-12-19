@@ -36,5 +36,5 @@ AbeMail::Application.configure do
   config.assets.debug = true
 
   # open emails in the broswer when in development
-  config.action_mailer.delivery_method = :letter_opener
+  #config.action_mailer.delivery_method = :letter_opener
 end

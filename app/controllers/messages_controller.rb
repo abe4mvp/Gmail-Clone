@@ -10,7 +10,8 @@ class MessagesController < ApplicationController
     create_sender_flags! # move to inside message!
 
     if @message.save
-      redirect_to inbox_messages_url(current_user) #change this
+      Abemailer.outgoing(@message).deliver!
+      redirect_to inbox_messages_url #change this
 #this is only for rails, it should actually send the emails here during backbone
     else
       render json: @message.errors.full_messages

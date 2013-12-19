@@ -1,6 +1,6 @@
 
 <h2>new email</h2>
-<form action="<%= outgoing_messages_url %>" method="post">
+<form action="<%= outgoing_messages_path %>" method="post">
   <%= render partial: "layouts/authenticity" %>
   <input type="text" name="message[recipient_emails]" placeholder="to">
   <br>

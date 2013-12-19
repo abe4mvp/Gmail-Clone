@@ -263,5 +263,7 @@ marquee {
 //compose
 
 #compose {
-  float:right;
+  position:fixed;
+  bottom:50px;
+  right:50px;
 }

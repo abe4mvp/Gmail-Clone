@@ -29,24 +29,27 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+
   has_many :received_messages, through: :recipients, source: :message
 
+  recent = lambda { |m| m.created_at }
+
   def sent
-    self.sent_messages.includes(:flags).merge(Flag.where(user_id: self.id, trashed: false)).sort_by {|m| m.created_at }
+    self.sent_messages.includes(:flags).merge(Flag.where(user_id: self.id, trashed: false)).sort_by { |m| m.created_at }
   end
 
   def inbox
     q_email = "%;#{self.email}%"
     sent_messages = Message.where("recipient_emails like ?", q_email)
-    sent_messages.includes(:flags).merge(Flag.where(user_id: self.id, trashed: false)).sort_by {|m| m.created_at }
+    sent_messages.includes(:flags).merge(Flag.where(user_id: self.id, trashed: false)).sort_by { |m| m.created_at }
   end
 
   def favorited
-    Message.includes(:flags).merge(Flag.where(user_id: self.id, heart: true, trashed: false)).sort_by {|m| m.created_at }
+    Message.includes(:flags).merge(Flag.where(user_id: self.id, heart: true, trashed: false)).sort_by { |m| m.created_at }
   end
   #save the m.created at to a prc
   def trash
-    Message.includes(:flags).merge(Flag.where(user_id: self.id, trashed: true)).sort_by {|m| m.created_at}
+    Message.includes(:flags).merge(Flag.where(user_id: self.id, trashed: true)).sort_by { |m| m.created_at }
   end
 
 

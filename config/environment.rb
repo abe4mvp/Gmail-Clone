@@ -26,5 +26,5 @@ elsif Rails.env.development?
     :domain         => 'abemail.net',
     :enable_starttls_auto => true # from sendgrid website
   }
-  ActionMailer::Base.delivery_method ||= :smtp
+  ActionMailer::Base.delivery_method = :smtp
 end

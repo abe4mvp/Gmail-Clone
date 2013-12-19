@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
 
    def create
      validate_extension
@@ -8,12 +8,12 @@ class UsersController < ApplicationController
 
      if @user.save
        self.current_user = @user
-       redirect_to inbox_user_url(@user)
+       redirect_to inbox_messages_url
      else
        render :json => @user.errors.full_messages
      end
    end
 
-   
+
 
 end
