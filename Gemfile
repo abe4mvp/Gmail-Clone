@@ -35,6 +35,8 @@ gem 'figaro'
 gem 'rest-client'
 gem 'json'
 gem 'ejs'
+gem 'jquery-ui-rails'
+gem 'rails3-jquery-autocomplete'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', :require => 'bcrypt'

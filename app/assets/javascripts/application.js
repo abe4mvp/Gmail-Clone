@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require jquery.ui.all
+//= require autocomplete-rails
 //= require abe_mail
 //= require_tree ../templates
 //= require_tree ./models

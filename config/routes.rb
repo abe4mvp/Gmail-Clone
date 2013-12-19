@@ -10,6 +10,7 @@ AbeMail::Application.routes.draw do
       get 'favorited'
       get 'draft'
       get 'trash'
+      get :autocomplete_message_subject
     end
   end
   resources :flags, only: [:update]

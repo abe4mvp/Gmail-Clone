@@ -2,6 +2,8 @@ class MessagesController < ApplicationController
   before_filter :require_current_user!
   respond_to  :json, :html
 
+  autocomplete :message, :subject
+
   def outgoing #do this in a transaction??
     imply_sender
 

@@ -13,6 +13,7 @@ window.AbeMail = {
     });
 
     AbeMail.$mailBox.html(emailIndexView.render().$el);
+
     new AbeMail.Routers.Emails();
 
 
@@ -22,4 +23,10 @@ window.AbeMail = {
 
 $(document).ready(function(){
   AbeMail.initialize();
+
+  $('#new-email').draggable();
+
+  $('#compose').on('click', function () {
+    $('#new-email').toggleClass('invisible')
+  });
 });

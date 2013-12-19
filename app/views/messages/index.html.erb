@@ -16,7 +16,7 @@
   </section>
 </section>
 
-<section id="compose">
+<section id="new-email">
 <%= render partial: "new_email" %>
 </section>
 
@@ -26,3 +26,5 @@
 <script type="application/javascript" charset="utf-8" id="bootstrap-inbox">
   <%= render(file: 'messages/inbox.rabl', object: @messages, formats: :rabl).html_safe %>
 </script>
+
+<%= javascript_include_tag "autocomplete-rails.js" %>

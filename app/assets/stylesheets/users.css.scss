@@ -262,8 +262,20 @@ marquee {
 
 //compose
 
-#compose {
+.invisible {
+  display:none;
+}
+
+#new-email {
+
   position:fixed;
-  bottom:50px;
-  right:50px;
+  bottom:20px;
+  right:20px;
+
+}
+
+#new-to, #new-subject {
+
+  width:575px;
+  padding:2px;
 }
