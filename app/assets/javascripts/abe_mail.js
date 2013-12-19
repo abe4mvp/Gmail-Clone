@@ -29,4 +29,5 @@ $(document).ready(function(){
   $('#compose').on('click', function () {
     $('#new-email').toggleClass('invisible')
   });
+
 });

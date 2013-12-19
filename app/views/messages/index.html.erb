@@ -7,6 +7,13 @@
 
   <section class="group" id="sidebar">
     <%= render :partial => 'sidebar' %>
+    <br>
+    <h2>AbeChat</h2>
+    <ul id="contacts">
+      <% @users.each do |user| %>
+      <li><%= user.name %></li>
+      <% end %>
+    </ul>
   </section>
 
   <section id="mailbox">
@@ -20,6 +27,18 @@
 <%= render partial: "new_email" %>
 </section>
 
+<section class="i" id="chat">
+  <ul id="chat-log">
+
+  </ul>
+  <form class="new-chat" action="<%= chats_url %>" method="post" data-remote="true">
+    <input type="text" name="chat_text" id="chat-text" placeholder="Chat it up!">
+
+    <p><input type="submit" value="Chat &rarr;"></p>
+  </form>
+
+</section>
+
 
 <input type="hidden" id="user_id" value="<%= current_user.id %>">
 
@@ -27,4 +46,60 @@
   <%= render(file: 'messages/inbox.rabl', object: @messages, formats: :rabl).html_safe %>
 </script>
 
-<%= javascript_include_tag "autocomplete-rails.js" %>
+
+
+<script src="http://js.pusher.com/2.1/pusher.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+  $("form.new-chat").on("ajax:success", function(event){
+      this.reset();
+    });
+
+    Pusher.log = function(message) {
+      console.log(message);
+    };
+
+    var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>');
+    Pusher.log('key' + pusher.key)
+
+
+
+    var currentUser = $('#current-username')[0].innerText;
+    currentUser.replace(' ', '-');
+
+    //send outgoing chat
+    $('#contacts').on("click", "li", function (event) {
+      var outgoingName = $(event.currentTarget)[0].innerText;
+      outgoingName.replace(' ', '-');
+      $('#contacts').off(); // turn off chat for now
+ 
+      // var namesArr = [outgoingName, currentUser];
+      // var names = namesArr.sort().join(';');
+      // var split = names.split(';');
+      // var otherName = split[0] === currentUser ? split[1] : split[0];
+
+      //subscribe to your new chat
+      var channel = pusher.subscribe(outgoingName);
+      channel.bind('new_chat_message', function(data) {
+        console.log("You sent a new message to" + outgoingName);
+        
+        $("#chat-log").append(data);
+      });
+
+    });
+
+
+    //listen for incoming messages
+    var channel = pusher.subscribe(currentUser);
+    channel.bind('new_chat_message', function(data) {
+      alert("You have a new message " + Data);
+
+
+      $("#chat-log").append(data);
+    });
+});
+
+</script>

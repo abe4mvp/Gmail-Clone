@@ -37,6 +37,7 @@ gem 'json'
 gem 'ejs'
 gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
+gem 'pusher'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', :require => 'bcrypt'

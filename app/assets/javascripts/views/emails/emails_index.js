@@ -1,6 +1,5 @@
 AbeMail.Views.EmailsIndex = Backbone.View.extend({
   initialize: function () {
-    console.log("init...")
     var self = this;
     renderCallback = this.render.bind(this);
     this.bindTrashSelected();
