@@ -6,15 +6,10 @@ module MessagesHelper
   end
 
   def internal_only?
-    @message.recipient_emails.split(";").map(&:strip).slice(1..-1).any? do |email|
-      !email.ends_with?('@abemail.net')
+    @message.recipient_emails.split(";").map(&:strip).slice(1..-1).all? do |email|
+      email.ends_with?('@abemail.net')
     end #use a lambda here?
   end
-
-  def create_sender_flags!
-    @message.flags.new(user_id: current_user.id)
-  end
-
 
 
 end

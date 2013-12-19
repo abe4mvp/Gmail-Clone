@@ -64,7 +64,7 @@ class Message < ActiveRecord::Base
     self.recipient_emails.split(';').slice(1..-1).each do |email|
       internal_user = User.find_by_email(email)
       if internal_user && (internal_user.id != self.sender_id) #needs testing
-        self.flags.new(user_id: internal_user.id)
+        self.flags.create(user_id: internal_user.id)
       end
     end
   end

@@ -21,6 +21,7 @@ body {
   border-collapse: collapse;
   float:right;
   margin:10px;
+
 }
 
 .check{
@@ -271,11 +272,48 @@ marquee {
   position:fixed;
   bottom:20px;
   right:20px;
+  width:600px;
+  #new-email-wrap {
+    padding:6px;
+    border-radius:10px;
+    background:linear-gradient(to bottom right, rgb(200,0,0), rgb(40,0,0));
+  }
+  p * {
+    cursor:pointer;
+    margin:-1px 0 2px 5px;
+  }
 
 }
 
-#new-to, #new-subject {
 
-  width:575px;
-  padding:2px;
+#new-email:active {
+  cursor:move;
+}
+
+
+#new-email form {
+  position:relative;
+
+
+}
+
+
+#new-email h2 {
+//  background-color: red;
+  padding:3px 0 2px 7px;
+  font-size:20px;
+}
+
+#new-email textarea {
+  width:98%;
+  margin:auto;
+  border:3px groove red;
+}
+
+#new-to, #new-subject {
+  width:98%;
+  margin:auto;
+  height:20px;
+  border:3px groove red;
+
 }

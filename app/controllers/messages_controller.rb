@@ -9,8 +9,10 @@ class MessagesController < ApplicationController
 
     @message = Message.new(params[:message])
 
+    @message.flags.build(user_id: current_user.id)
+
     if @message.save
-      create_sender_flags!
+
       Abemailer.outgoing(@message).deliver! unless internal_only?
 
       redirect_to inbox_messages_url #update for backbone

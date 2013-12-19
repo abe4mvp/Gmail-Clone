@@ -1,14 +1,14 @@
-
-<h2>New Message</h2>
-<form action="<%= outgoing_messages_path %>" method="post">
-  <%= render partial: "layouts/authenticity" %>
-  <input type="text" name="message[recipient_emails]" placeholder="to" id="new-to">
-  <br>
-  <input type="text" name="message[subject]" id="new-subject" placeholder="subject" data-autocomplete="messages/autocomplete_message_subject" >
-  <br>
-  <textarea name="message[body]" id="message[body]" rows="20" cols="80">
-    <%= ("&#13;" *3).html_safe %>From, &#13; <%= current_user.name  %>
-  </textarea>
-
-  <p><input type="submit" value="Send &rarr;"></p>
-</form>
+<div id="new-email-wrap">
+  <h2>New Message</h2>
+  <form action="<%= outgoing_messages_path %>" method="post">
+    <%= render partial: "layouts/authenticity" %>
+    <div id="email-inputs">
+    <input type="text" name="message[recipient_emails]" placeholder="to" id="new-to">
+    <input type="text" name="message[subject]" id="new-subject" placeholder="subject">
+    <textarea name="message[body]" id="message[body]" rows="23">
+      <%= ("&#13;" *5).html_safe %>From, &#13; <%= current_user.name  %>
+    </textarea>
+    </div>
+    <p><input type="submit" value="Send &rarr;"></p>
+  </form>
+</div>

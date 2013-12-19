@@ -1,16 +1,16 @@
 AbeMail.Views.EmailsIndex = Backbone.View.extend({
   initialize: function () {
+    console.log("init...")
     var self = this;
     renderCallback = this.render.bind(this);
-    this.bindTrash();
+    this.bindTrashSelected();
     this.listenTo(AbeMail.emails, "remove", renderCallback);
   },
 
   template: JST['emails/index'],
 
   events: {
-    "click .heart": "heart",
-    "click #trash": "trash"
+    "click .heart": "heart"
   },
 
   render: function () {
@@ -39,14 +39,15 @@ AbeMail.Views.EmailsIndex = Backbone.View.extend({
     });
   },
 
-  bindTrash: function() {
+  bindTrashSelected: function() {
+    $("body").off();
     var self = this;
     $("body").on("click","#trash",function(){
-      self.trash()
+      self.trashSelected()
     })
   },
 
-  trash: function () {
+  trashSelected: function () {
     //// fixing this
     var self = this;
     $(':checked').each(function (i) {
@@ -58,9 +59,7 @@ AbeMail.Views.EmailsIndex = Backbone.View.extend({
   },
 
   _trash: function (id) {
-    console.log(id)
     var message = AbeMail.emails.findWhere({id: parseInt(id)});
-    console.log(message);
     message.get('flags').toggleAttr('trashed').save({}, {
       success: function () {
         AbeMail.emails.remove(message);
