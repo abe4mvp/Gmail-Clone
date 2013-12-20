@@ -286,7 +286,7 @@ marquee {
 }
 
 
-#new-email:active {
+#new-email:active,  {
   cursor:move;
 }
 
@@ -316,4 +316,25 @@ marquee {
   height:20px;
   border:3px groove red;
 
+}
+
+#chat {
+  position:fixed;
+  border-radius:10px;
+  background:linear-gradient(to bottom right, rgb(200,0,0), rgb(40,0,0));
+  top:200px;
+  left:250px;
+}
+
+#chat-log {
+  background:rgba(0,0,0,.9)
+
+}
+
+#chat-log li {
+  text-align:right;
+}
+
+.chat-from {
+  text-align:left;
 }

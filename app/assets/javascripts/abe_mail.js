@@ -24,7 +24,7 @@ window.AbeMail = {
 $(document).ready(function(){
   AbeMail.initialize();
 
-  $('#new-email').draggable();
+  $('.drag-me').draggable();
 
   $('#compose').on('click', function () {
     $('#new-email').toggleClass('invisible')

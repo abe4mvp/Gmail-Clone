@@ -23,16 +23,16 @@
   </section>
 </section>
 
-<section id="new-email" class="invisible">
+<section id="new-email" class="invisible drag-me">
 <%= render partial: "new_email" %>
 </section>
 
-<section class="i" id="chat">
-  <ul id="chat-log">
+<section id="chat" class=" drag-me">
+  <ul id="chat-log" >
 
   </ul>
   <form class="new-chat" action="<%= chats_url %>" method="post" data-remote="true">
-    <input type="text" name="chat_text" id="chat-text" placeholder="Chat it up!">
+    <textarea name="chat_text" id="chat-text" ></textarea>
     <input type="hidden" name="chat_to" value="" id="chat_to">
     <p><input type="submit" value="Chat &rarr;"></p>
   </form>
@@ -56,15 +56,17 @@ $(document).ready(function(){
 
   $("form.new-chat").on("ajax:success", function(event){
       this.reset();
+      $('#chat').removeClass('invisible');
 
-
+      if ($('#contacts').hasClass('invisible') === false){
+        $('#contacts').addClass('invisible');
+      }
 
     });
 
     var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>');
 
-    var me = $('#current-username')[0].innerText
-    var currentUser = me.replace(' ', '-');
+    var currentUser = $('#current-username')[0].innerText.replace(' ', '-');
 
 
     //send outgoing chat
@@ -72,24 +74,33 @@ $(document).ready(function(){
       var outgoingName = $(event.currentTarget)[0].innerText.replace(' ', '-');
 
 
+
+      if ($('#contacts').hasClass('invisible') === false){
+        $('#contacts').addClass('invisible');
+      }
+
       $('#contacts').off(); // turn off chat for now
       // var namesArr = [outgoingName, currentUser];
       // var names = namesArr.sort().join(';');
       // var split = names.split(';');
       // var otherName = split[0] === currentUser ? split[1] : split[0];
       $('#chat_to')[0].value = outgoingName;
-
+      $('#chat').removeClass('invisible');
 
       //subscribe to your new chat
       var channel = pusher.subscribe(outgoingName);
       channel.bind('new_chat_message', function(data) {
 
-        var prefixed = data;
-        if (data.indexOf(me) === 4){
-          prefixed = data.replace(me, "me");
+        $('#chat').removeClass('invisible');
+
+
+
+
+        if ($('#contacts').hasClass('invisible') === false){
+          $('#contacts').addClass('invisible');
         }
 
-        $("#chat-log").append(prefixed);
+        $("#chat-log").append(data);
       });
 
     });
@@ -100,11 +111,17 @@ $(document).ready(function(){
     channel.bind('new_chat_message', function(data) {
       $('#chat_to')[0].value = currentUser;
 
-      var prefixed = data;
-      if (data.indexOf(me) === 4){
-        prefixed = data.replace(me, "me");
+      $('#chat').removeClass('invisible');
+
+//       if (data.indexOf(me) === 4){
+//         prefixed = data.replace(me, "me");
+//       }
+      if ($('#contacts').hasClass('invisible') === false){
+        $('#contacts').addClass('invisible');
       }
-      $("#chat-log").append(prefixed);
+
+      $("#chat-log").append(data);
+      $("#chat-log li").last().addClass('chat-from');
     });
 });
 
