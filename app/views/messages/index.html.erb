@@ -98,6 +98,15 @@ $(document).ready(function(){
 
 
         $("#chat-log").append(data);
+
+        var $newewstChat =  $('#chat-log li:last-child')
+        if ($newewstChat.hasClass(currentUser)){
+          $newewstChat.removeClass(currentUser);
+          $newewstChat.addClass('me');
+        } else {
+          $newewstChat.removeClass();
+          $newewstChat.addClass('them')
+        }
       });
 
     });
@@ -119,6 +128,18 @@ $(document).ready(function(){
       }
 
       $("#chat-log").append(data);
+
+
+      var $newewstChat =  $('#chat-log li:last-child')
+      if ($newewstChat.hasClass(currentUser)){
+        $newewstChat.removeClass(currentUser);
+        $newewstChat.addClass('me');
+      } else {
+        $newewstChat.removeClass();
+        $newewstChat.addClass('them')
+      }
+
+
     });
 });
 
