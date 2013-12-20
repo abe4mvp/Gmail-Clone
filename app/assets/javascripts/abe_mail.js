@@ -30,4 +30,9 @@ $(document).ready(function(){
     $('#new-email').toggleClass('invisible')
   });
 
+
+  $('.header-wrap img').on('click', function () {
+    $('body').toggleClass('ocean');
+  })
+
 });

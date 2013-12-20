@@ -27,14 +27,15 @@
 <%= render partial: "new_email" %>
 </section>
 
-<section id="chat" class=" drag-me">
+<section id="chat" class="invisible drag-me">
+  <h2>Chat with: </h2>
   <ul id="chat-log">
 
   </ul>
   <form class="new-chat" action="<%= chats_url %>" method="post" data-remote="true">
-    <input type="text" name="chat_text" id="chat-text" autocomplete="off">
+    <p><input type="text" name="chat_text" id="chat-text" autocomplete="off"></p>
     <input type="hidden" name="chat_to" value="" id="chat_to">
-    <p><input type="submit" value="Chat &rarr;"></p>
+    <input type="submit" value="Chat &rarr;">
   </form>
 
 </section>
@@ -98,8 +99,7 @@ $(document).ready(function(){
 
 
         $("#chat-log").append(data);
-        var height = $("chat-log").scrollHeight;
-        $("#chat-log").scrollTop(height)
+        $("#chat-log").animate({ scrollTop: $('#chat-log').height() }, "slow");
 
         var $newewstChat =  $('#chat-log li:last-child')
         if ($newewstChat.hasClass(currentUser)){
@@ -130,8 +130,8 @@ $(document).ready(function(){
       }
 
       $("#chat-log").append(data);
-      var height = $("chat-log").scrollHeight;
-      $("#chat-log").scrollTop(height)
+
+      $("#chat-log").animate({ scrollTop: $('#chat-log').height() }, "slow");
 
       var $newewstChat =  $('#chat-log li:last-child')
       if ($newewstChat.hasClass(currentUser)){
