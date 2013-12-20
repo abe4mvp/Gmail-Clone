@@ -32,7 +32,7 @@
 
   </ul>
   <form class="new-chat" action="<%= chats_url %>" method="post" data-remote="true">
-    <textarea name="chat_text" id="chat-text" ></textarea>
+    <input type="text" name="chat_text" id="chat-text" autocomplete="off">
     <input type="hidden" name="chat_to" value="" id="chat_to">
     <p><input type="submit" value="Chat &rarr;"></p>
   </form>
@@ -98,6 +98,8 @@ $(document).ready(function(){
 
 
         $("#chat-log").append(data);
+        var height = $("chat-log").scrollHeight;
+        $("#chat-log").scrollTop(height)
 
         var $newewstChat =  $('#chat-log li:last-child')
         if ($newewstChat.hasClass(currentUser)){
@@ -128,7 +130,8 @@ $(document).ready(function(){
       }
 
       $("#chat-log").append(data);
-
+      var height = $("chat-log").scrollHeight;
+      $("#chat-log").scrollTop(height)
 
       var $newewstChat =  $('#chat-log li:last-child')
       if ($newewstChat.hasClass(currentUser)){
