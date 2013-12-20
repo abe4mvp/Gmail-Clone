@@ -58,6 +58,8 @@ $(document).ready(function(){
       this.reset();
       $('#chat').removeClass('invisible');
 
+      console.log("ajax success being called")
+
       if ($('#contacts').hasClass('invisible') === false){
         $('#contacts').addClass('invisible');
       }
@@ -73,30 +75,27 @@ $(document).ready(function(){
     $('#contacts').on("click", "li", function (event) {
       var outgoingName = $(event.currentTarget)[0].innerText.replace(' ', '-');
 
+
+      console.log("contact click call back being called")
       if ($('#contacts').hasClass('invisible') === false){
         $('#contacts').addClass('invisible');
       }
 
       $('#contacts').off(); // turn off chat for now
-      // var namesArr = [outgoingName, currentUser];
-      // var names = namesArr.sort().join(';');
-      // var split = names.split(';');
-      // var otherName = split[0] === currentUser ? split[1] : split[0];
+
+      var namesArr = [outgoingName, currentUser];
+      var namesJoined = namesArr.sort().join(';');
+
+
+
       $('#chat_to')[0].value = outgoingName;
       $('#chat').removeClass('invisible');
 
       //subscribe to your new chat
-      var channel = pusher.subscribe(outgoingName);
-      channel.bind('new_chat_message', function(data) {
-
-        $('#chat').removeClass('invisible');
+      var outchannel = pusher.subscribe(outgoingName);
+      outchannel.bind('new_chat_message', function(data) {
 
 
-
-
-        if ($('#contacts').hasClass('invisible') === false){
-          $('#contacts').addClass('invisible');
-        }
 
         $("#chat-log").append(data);
       });
@@ -105,10 +104,11 @@ $(document).ready(function(){
 
 
     //listen for incoming messages
-    var channel = pusher.subscribe(currentUser);
-    channel.bind('new_chat_message', function(data) {
+    var mychannel = pusher.subscribe(currentUser);
+    mychannel.bind('new_chat_message', function(data) {
       $('#chat_to')[0].value = currentUser;
 
+      console.log("user subscribing to own channel")
       $('#chat').removeClass('invisible');
 
 //       if (data.indexOf(me) === 4){
@@ -119,7 +119,6 @@ $(document).ready(function(){
       }
 
       $("#chat-log").append(data);
-      $("#chat-log li").last().addClass('chat-from');
     });
 });
 
