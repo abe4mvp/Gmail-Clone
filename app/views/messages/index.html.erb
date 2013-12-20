@@ -28,7 +28,7 @@
 </section>
 
 <section id="chat" class=" drag-me">
-  <ul id="chat-log" >
+  <ul id="chat-log">
 
   </ul>
   <form class="new-chat" action="<%= chats_url %>" method="post" data-remote="true">
@@ -72,8 +72,6 @@ $(document).ready(function(){
     //send outgoing chat
     $('#contacts').on("click", "li", function (event) {
       var outgoingName = $(event.currentTarget)[0].innerText.replace(' ', '-');
-
-
 
       if ($('#contacts').hasClass('invisible') === false){
         $('#contacts').addClass('invisible');

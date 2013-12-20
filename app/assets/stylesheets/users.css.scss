@@ -324,17 +324,37 @@ marquee {
   background:linear-gradient(to bottom right, rgb(200,0,0), rgb(40,0,0));
   top:200px;
   left:250px;
+  width:200px;
 }
 
 #chat-log {
-  background:rgba(0,0,0,.9)
+  background:rgba(255,255,255,.8)
 
 }
 
 #chat-log li {
-  text-align:right;
+  float:right;
+  background:blue;
+  display:inline-block;
+  border-radius:3px;
+  padding:2px;
+
 }
 
-.chat-from {
-  text-align:left;
+#chat-log li:after {
+  clear:both;
+  content:"";
 }
+
+#chat-log p {
+  display:block;
+  width:200px;
+}
+
+
+
+#chat-log li.chat-from  {
+  float:left;
+  background:green;
+}
+
