@@ -80,6 +80,12 @@ body {
 
 }
 
+.header-wrap img:hover {
+  -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+  -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+  box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+}
+
 
 .emails {
   font-size:12px;
@@ -463,55 +469,6 @@ marquee {
 
 /// ocean theme
 
-.ocean {
 
-  .me span{
-    background:rgba(103,177,190,.7);
-  }
-
-  .them span{
-    background:#0066FF;
-  }
-
-  #chat {
-    background:linear-gradient(to bottom right, #99FFFF, #00FF99);
-  }
-
-  #new-email textarea {
-    border:3px groove #33FFCC;
-  }
-
-  #new-to, #new-subject {
-    border:3px groove #33FFCC;
-  }
-
-
-  #new-email {
-    #new-email-wrap {
-      background:linear-gradient(to bottom right, #99FFFF, rgba(103,177,190,.7));
-    }
-  }
-
-  .red {
-    color:#00FF66;
-  }
-
-
-  background-image:url('Sand-underwater.jpg');
-    //background-repeat:no-repeat;
-
-    #sidebar li:hover {
-      opacity: 1;
-      /*Glow*/
-      -webkit-box-shadow: 10px 10px 30px rgba(0,0,0,0.8);
-      -moz-box-shadow: 10px 10px 30px rgba(110,215,235,0.8);
-      box-shadow: 10px 10px 30px rgba(0,0,0,0.8);
-    }
-
-
-
-
-
-}
 
 

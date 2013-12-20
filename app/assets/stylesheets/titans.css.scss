@@ -1,0 +1,54 @@
+.titans {
+
+  .me span{
+    background:red;
+  }
+
+  .them span{
+    background:orange;
+  }
+
+  #chat {
+    background:linear-gradient(to bottom right, #FFFF00, red);
+  }
+
+  #new-email textarea {
+    border:3px groove blue;
+  }
+
+  #new-to, #new-subject {
+    border:3px groove blue;
+  }
+
+
+  #new-email {
+    #new-email-wrap {
+      background:linear-gradient(to bottom right, blue, #00FFFF);
+    }
+  }
+
+  .red {
+    color:blue;
+  }
+
+
+  background-image:url('titans.jpg');
+    //background-repeat:no-repeat;
+
+    #sidebar li:hover {
+      opacity: 1;
+      /*Glow*/
+      -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+      -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+      box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    }
+
+
+    .header-wrap img:hover {
+      -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+      -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+      box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    }
+
+
+}
