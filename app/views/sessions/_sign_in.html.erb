@@ -1,28 +1,34 @@
-<form action="<%= session_url %>" method="post">
 
+<form class="login" action="<%= session_url %>" method="post">
+	<h1>Sign In</h1>
   <%= render :partial => 'layouts/authenticity' %>
 
 
+  <div class="inputs">
+	  <label>Email
+		  <br>
+	  <input
+	     id="user_email"
+	     name="user[email]"
+	     placeholder="@abemail.net"
+	     type="text">
+	   
+	   </label>
 
-  <label>User name
-  <input
-     id="user_email"
-     name="user[email]"
-     placeholder="Email"
-     type="text">
-     @abemail.net
-   </label>
 
+
+	  <label> Password
+		  <br>
+	  <input
+	     id="user_password"
+	     name="user[password]"
+	     type="password"
+	     placeholder="Password">
+	 </label>
+ </div>
   <br>
-
-  <label for="user_password">Password</label>
-  <input
-     id="user_password"
-     name="user[password]"
-     type="password"
-     placeholder="Password">
-
-  <br>
-
-  <input type="submit" value="Log in">
+	
+  <div class="submit">
+	  <input type="submit" value="Log in">
+  </div>
 </form>

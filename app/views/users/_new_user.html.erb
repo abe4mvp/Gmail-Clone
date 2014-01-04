@@ -1,40 +1,53 @@
-<form action="<%= users_url %>" method="post">
+
+<form class="login invisible" action="<%= users_url %>" method="post">
+<h1>Sign Up</h1>
 
   <%= render :partial => 'layouts/authenticity' %>
+  <div class="inputs">
+	  
+	
 
-  <label for="user_name">User Name</label>
-  <input
-     id="user_name"
-     name="user[name]"
-     type="text"
-     placeholder="Who are you?">
-  <br>
+	  <label>Email
+		  <br>
+	  <input
+	     id="user_email"
+	     name="user[email]"
+	     type="text"
+	     placeholder="@abemail.net">
+	     
+	  </label>
+	
 
-  <label>Desired Email
-  <input
-     id="user_email"
-     name="user[email]"
-     type="text"
-     placeholder="Your_Email_123">
-     @abemail.net
-  </label>
-  <br>
+	  <label>Password
+		  <br>
+	  <input
+	     id="user_password"
+	     name="user[password]"
+	     type="password"
+	     placeholder="Password">
+	 </label>
+	 
 
-  <label for="user_password">Password</label>
-  <input
-     id="user_password"
-     name="user[password]"
-     type="password"
-     placeholder="Password">
-  <br>
-
-  <label> Verify
-  <input
-     id="user_password"
-     name="user[password]"
-     type="password"
-     placeholder="Verify above">
-  </label>
-
-  <input type="submit" value="Sign Up">
+	  <label> Verify
+		  <br>
+	  <input
+	     id="user_password"
+	     name="user[password]"
+	     type="password"
+	     placeholder="Same as above">
+	  </label>
+	  
+	  <label>Name
+		  <br>
+	  <input
+	     id="user_name"
+	     name="user[name]"
+	     type="text"
+	     placeholder="Who are you?">
+	 </label>
+  </div>
+  
+	<div class="submit">
+		<input type="submit" value="Sign Up">
+	</div>
 </form>

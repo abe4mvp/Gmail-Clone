@@ -471,7 +471,118 @@ marquee {
 }
 
 
-/// ocean theme
+/// login page
+//reset input styling
+#login-wrap input {
+	-webkit-appearance: none;
+	display: inline-block;
+	box-sizing: content-box;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	width: auto;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	color: inherit;
+}
+
+#login-wrap * {
+	color:black;
+}
+
+
+
+.login {
+  width: 290px;
+  margin:0;
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+  height:100%;
+}
+
+.login h1 {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 1.0;
+  color:black;
+  text-align:center;
+}
+
+
+#login-wrap{
+	
+	max-height:450px;
+	width:350px;
+   	top:20%;
+    margin-left:auto;
+    margin-right:auto;
+	
+	input[type="submit"] {
+	  display: inline;
+	  cursor: pointer;
+  
+	}
+	
+	input {
+		margin:5px 0;
+		width:100%;
+	}
+	
+	label {
+		display:block;
+		font-weight:bold;
+	}
+	
+	.submit > input {
+	  position: relative;
+	  display: inline-block;
+	  padding: 8px 2px;
+	  font-weight: bold;
+	  background: blue;
+	  box-shadow: 0 3px 0 0 darkblue;
+	  border-radius: 5px;
+	  color:white;
+	  
+	}
+	
+	.submit > input:hover {
+	  background: blue;
+	}
+
+	.submit > input:active {
+	  top: 3px;
+	  box-shadow: none;
+	  background: darkblue;
+	}
+	
+	.inputs input {
+	  display: inline-block;
+	  border: 2px solid black;
+	  padding: 8px 0;
+	  border-radius: 5px;
+	}
+	
+	.inputs input:focus {
+		border-color:lightgreen;
+	}
+	.inputs {
+		margin:auto;
+	}
+	
+	
+} 
+
+#toggle {
+	text-align:center;
+}
+
+
+
+
 
 
 

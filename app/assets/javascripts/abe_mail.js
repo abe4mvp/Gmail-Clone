@@ -39,7 +39,6 @@ $(document).ready(function(){
     if (themeNum === themes.length ){
       themeNum = 0;
     }
-    console.log(themeNum);
     $('body').addClass(themes[themeNum]);
 
 

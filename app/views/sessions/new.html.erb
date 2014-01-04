@@ -1,30 +1,48 @@
-<h1>Sign In</h1>
+<div id="login-wrap">
+	<div class="new-session">
+		<%= render :partial => 'sign_in' %>
+	</div>
 
-<%= render :partial => 'sign_in' %>
+	<div >
+		<%= render :partial => 'users/new_user' %>
+	</div>
+	
+	<div id="toggle">
+		<a href="#" >New Member? Click Here</a>
+		<a class='invisible' href="#">Sign in with exisiting account</a>
+	</div>
+	
+</div>
 
-<h1>Sign Up</h1>
 
-<%= render :partial => 'users/new_user' %>
-<br>
+<!-- <br>
 <br>
 <h1>New Features!</h1>
 
-<ol>
-  <li>AbeMail now sends and gets emails from the outside world (gmail, yahoo etc..)</li>
+<ol id="new-features">
+  <li>Send and recieves emails to/from any email service (gmail, yahoo etc..)</li>
   <li>Mark emails as favorites</li>
-  <li>View emails by folders (Inbox, Sent, Favorite, Trash)</li>
-  <li>Select Multiples emails at once to send them to/from the trash</li>
-  <li>Emails are automaticaly marked as read when you click on them</li>
-  <li>Click compose to show new email box (draggable)</li>
   <li>AbeChat! exchange instant messages with other AbeMail users</li>
-  <li>Themes! Toggle your AbeMail Layout by clicking the AbeMail logo in the top right corner</li>
+  <li>Click the Abemail Logo to change your display theme</li>
+  <li>Drag your AbeChat and New Email window anywhere on the screen</li>
 
 </ol>
 <br>
 <h1>TODO:</h1>
-<ul>
+<ul id="todo">
   <li>Search and filter emails by sender, subject etc..</li>
   <li>Drag and drop emails into favorites or trash</li>
   <li>mark all as read/unread/favorite</li>
-  <li>Reply/Forward buttons</li>
-</ul>
+  <li>Reply/Forward emails</li>
+</ul> -->
+
+<script type="text/javascript" charset="utf-8">
+	
+	$('#toggle a').on('click', function(){
+		
+		$('#toggle a').toggleClass('invisible')
+		$('.login').toggleClass("invisible");
+		
+	});
+		
+</script>
