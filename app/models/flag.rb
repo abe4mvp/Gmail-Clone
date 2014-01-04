@@ -11,8 +11,5 @@ class Flag < ActiveRecord::Base
 
   belongs_to :user
 
-  def toggle_heart
-    self.heart = self.heart ? false : true
-    self.save!
-  end
+  
 end

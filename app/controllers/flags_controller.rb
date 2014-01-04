@@ -6,7 +6,7 @@ class FlagsController < ApplicationController
 
 
     puts "found flag" if flag
-    if flag.update_attributes(params[:flag]) #makes this a cool helper
+    if flag.update_attributes(params[:flag]) 
       render json: flag
     else
       puts "something went wrong saving a flag"
