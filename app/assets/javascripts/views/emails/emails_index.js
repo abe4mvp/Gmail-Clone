@@ -1,16 +1,12 @@
 AbeMail.Views.EmailsIndex = Backbone.View.extend({
   initialize: function () {
-    var self = this;
-    renderCallback = this.render.bind(this);
+    
     this.bindSelectorFunctions();
-    this.listenTo(AbeMail.emails, "remove", renderCallback);
+
   },
 
   template: JST['emails/index'],
 
-  events: {
-    "click .heart": "heart"
-  },
 
   render: function () {
     var renderedContent = this.template({
@@ -21,82 +17,89 @@ AbeMail.Views.EmailsIndex = Backbone.View.extend({
 
     return this;
   },
+  
+  updateAll: function (attribute, successCallback, reRender) { // update the specified attribute for all selected emails, pass down the succcess callback 
+    var self = this;
+    $(':checked').each(function () {
+      var rId = $(this).closest('tr').attr('data-id');
 
+      self.updateIndividual(rId, successCallback, attribute);
 
-
-  heart: function (event) {
-	
-    var $heart = $(event.currentTarget);
-    var rId =  $heart.closest('tr').attr('data-id');
-    this._heart(rId);
+    });
+		
+		if (reRender) this.render();
   },
   
-  _heart: function (id) {
+  updateIndividual: function (id, successCallback, attribute) {
       var message = AbeMail.emails.findWhere({id: parseInt(id)});
-      message.get('flags').toggleAttr('heart').save({}, {
-        success: function () {
-          renderCallback();
-        },
+      message.get('flags').toggleAttr(attribute).save({}, {
+        
+				success: successCallback(id, message),
+
         error: function () {
-          console.log('y u no like?')
+          console.log('error trying to' + action + "message #" + id)
         }
       });
   },
   
-  toggleHeartSelected: function () {
-	  this.updateSelected(this._heart)
-  },
-  
-
   bindSelectorFunctions: function() {
-    $("body").off();
+  	$("body").off();
+		$("#mailbox").off();
     var self = this;
+	
     $("body").on("click","#trash",function(){
     	self.toggleTrashSelected();
-    })
-	$("body").on("click", "#heart", function () {
-		self.toggleHeartSelected();
-	})
+    });
 	
+		$("body").on("click", "#heart", function () {
+			self.toggleHeartSelected();
+		});
 	
+		$("body").on("click", "#read", function () {
+			self.toggleReadSelected();
+		});
+	
+		$("#mailbox").on("click", ".heart-box", function (event) {
+		    var $heart = $(event.currentTarget);
+		    var rId =  $heart.closest('tr').attr('data-id');
+				console.log(rId)
+		    self.updateIndividual(rId, self.toggleHeart, "heart");
+			});
   },
+
+
+	
+	toggleHeart: function (id) {
+		$("tr[data-id=" + id + "] .heart").toggleClass('red');
+	},
+  
+  toggleHeartSelected: function () {
+
+	  this.updateAll("heart", this.toggleHeart)
+  },
+  
+
+
+  
+  toggleReadSelected: function () {
+		var success = function (id) {
+			$("tr[data-id=" + id + "]").toggleClass('unread');
+		}
+	  this.updateAll("read", success);
+  },
+
+  
 
   toggleTrashSelected: function () {
-    //// fixing this
-    // var self = this;
- //    $(':checked').each(function (i) {
- //      var rId = $(this).closest('tr').attr('data-id');
- // 
- //      self._trash(rId);
- // 
- //    });
- 
- 	this.updateSelected(this._trash);
+
+		var success = function (id, message) {
+			AbeMail.emails.remove(message);  
+			
+		}
+		
+	 	this.updateAll("trashed", success, true );
   },
   
-  updateSelected: function (action) { // helper function that updates all the checked emails the specified function
-    //// fixing this
-    var self = this;
-    $(':checked').each(function (i) {
-      var rId = $(this).closest('tr').attr('data-id');
-
-      action(rId);
-
-    });
-  },
-  
-
-  _trash: function (id) {
-    var message = AbeMail.emails.findWhere({id: parseInt(id)});
-    message.get('flags').toggleAttr('trashed').save({}, {
-      success: function () {
-        AbeMail.emails.remove(message);
-      },
-      error: function () {
-        console.log('y u no trash?')
-      }
-    });
-  },
 
   leave: function () {
     $("body").off()
