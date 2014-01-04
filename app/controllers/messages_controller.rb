@@ -27,6 +27,7 @@ class MessagesController < ApplicationController
   def inbox
     @messages = current_user.inbox
     @users = User.where('id != ?', current_user.id)
+    @background = "ocean"
 
     respond_to do |format|
       format.html { render :index }

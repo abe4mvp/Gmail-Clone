@@ -2,29 +2,18 @@
 <html>
   <head>
     <title>abemail</title>
-    <%# to add themes toggle the included css sheet here %>
+    
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-  <body class="default">
+  <body class="<%= @background %>">
 
 
 
   <% if !current_user.nil? %>
     <header>
-      <div class="header-wrap group">
-
-        <img src="https://s3.amazonaws.com/AbeMail/AbeMail.png" width="75" height="38" alt="AbeMail">
-        <input type="text" name="search" placeholder="What are you looking for?" id="search">
-        <input type="submit" value="Search">
-
-        <ul class="header-right group">
-          <li id="current-username"><%= current_user.name %></li>
-          <li><%= button_to "Logout", session_url, :method => :delete %></li>
-        </ul>
-
-      </div>
+      <%= render :partial => 'header_bar' %>
     </header>
   <% end %>
 

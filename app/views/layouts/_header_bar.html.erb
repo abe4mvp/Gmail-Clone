@@ -1,0 +1,12 @@
+<div class="header-wrap group">
+
+        <img src="https://s3.amazonaws.com/AbeMail/AbeMail.png" width="75" height="38" alt="AbeMail">
+        <input type="text" name="search" placeholder="What are you looking for?" id="search">
+        <input type="submit" value="Search">
+
+        <ul class="header-right group">
+          <li id="current-username"><%= current_user.name %></li>
+          <li><%= button_to "Logout", session_url, :method => :delete %></li>
+        </ul>
+
+      </div>
