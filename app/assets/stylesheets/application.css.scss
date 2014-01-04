@@ -76,13 +76,10 @@ body {
   color:white;
   font-family:sans-serif;
   
-
-}
-
-.default {
-	background-image:url('Crysis.jpg');
 	background-size:100%;
+
 }
+
 
 .header-wrap img:hover {
 	cursor:pointer;
@@ -110,6 +107,7 @@ body {
   width: 20px;
   color:gray;
   cursor:pointer;
+  
 }
 
 .red {
@@ -175,47 +173,6 @@ body {
 
 
 
-
-
-#more-options {
-  position: relative;
-
-}
-#buttons {
-  display: block;
-}
-
-#more:hover  > #dropdown {
-  display: block;
-}
-#buttons li{
-  float:left;
-}
-
-
-#dropdown {
-  display: none;
-  position: absolute;
-  color: black;
-  width: 260px;
-  z-index:1;
-
-}
-
-#dropdown li{
-  border-bottom: 3px solid black;
-  width: 240px;
-  background: grey;
-  border-right: 3px solid black;
-
-}
-
-#dropdown li:nth-child(odd){
-  background:red;
-}
-
-
-
 // top bar
 
 
@@ -266,6 +223,7 @@ body {
   height:100%;
   width:100%;
   min-width:1500px;
+
 }
 
 
@@ -273,7 +231,6 @@ body {
 #sidebar {
   float:left;
   width:170px;
-
   height:100%;
   padding:10px 0px 10px 5px;
 }
@@ -282,14 +239,11 @@ body {
   margin:2px;
   width:140px;
   padding:10px 5px 10px 10px ;
-  opacity: 0.8;
-   /*Transition*/
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
+  
+   
 }
 
-#sidebar li:hover {
+.buttons li:hover {
   opacity: 1;
   /*Glow*/
   -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
@@ -311,6 +265,7 @@ body {
   width:100%;
   height:40px;
   padding-left:230px;
+  
 }
 
 
@@ -582,6 +537,60 @@ body {
 		
 	}
 }
+
+//buttons
+
+.buttons {
+  display: block;
+	
+	li {
+  cursor:pointer;
+	position:relative;
+	border:2px solid white;
+	border-radius:5px;
+	font-weight:bold;
+  /*Transition*/
+
+	}	
+	
+	li:hover {
+	  -webkit-box-shadow: 10px 10px 30px 0 rgba(0,0,0,0.8);
+	  -moz-box-shadow: 10px 10px 30px 0 rgba(0,0,0,0.8);
+	  box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.8);
+		
+	}
+	
+	li:active {
+	  -webkit-box-shadow:none;
+	  -moz-box-shadow:none;
+	  box-shadow:none;
+		top:3px;
+
+	}
+  
+}
+
+#menu li {
+  float:left;
+	display:inline-block;
+	padding: 5px 0;
+	margin: 0 10px;
+	
+}
+
+.buttons li {
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+}
+
+.heart {
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s easet;
+  -o-transition: all .5s ease;
+}
+
+
 
 
 

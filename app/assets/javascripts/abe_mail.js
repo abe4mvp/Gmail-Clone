@@ -30,7 +30,7 @@ $(document).ready(function(){
     $('#new-email').toggleClass('invisible')
   });
 
-  var themes = ["default", "ocean", "titans"]
+  var themes = ["tile", "ocean", "titans"]
   var themeNum = 0;
 
   $('.header-wrap img').on('click', function () {
