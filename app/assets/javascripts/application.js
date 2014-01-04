@@ -16,6 +16,7 @@
 //= require backbone
 //= require jquery.ui.all
 //= require abe_mail
+//= require abeChat
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
