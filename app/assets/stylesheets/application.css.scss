@@ -516,7 +516,7 @@ marquee {
 #login-wrap{
 	
 	max-height:450px;
-	width:350px;
+	width:330px;
    	top:20%;
     margin-left:auto;
     margin-right:auto;
@@ -578,6 +578,27 @@ marquee {
 
 #toggle {
 	text-align:center;
+}
+
+
+#login-nav {
+	margin:auto;
+	width:100%;
+	
+	.img-wrap {
+		margin-right:auto;
+		margin-left:auto;
+		display:block;
+		width:554px;
+	}
+	
+	img {
+	    height:150px;
+	    width:auto;
+		
+		
+		
+	}
 }
 
 
