@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     });
 
-    var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>');
+    
 
     var currentUser = $('#current-username')[0].innerText.replace(' ', '-');
 

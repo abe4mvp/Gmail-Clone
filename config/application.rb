@@ -61,7 +61,7 @@ module AbeMail
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    config.assets.precompile << 'abeChat.js' #to fix issue of abeChat showing up as no being precompiled
+   
 
     config.assets.paths << "app/assets/templates"
 

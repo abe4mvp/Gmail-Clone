@@ -41,6 +41,10 @@
 
 
 <script src="http://js.pusher.com/2.1/pusher.min.js"></script>
+
+<script>
+	var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>');
+</script>
 <%= javascript_include_tag("abeChat.js") %>
 
 
