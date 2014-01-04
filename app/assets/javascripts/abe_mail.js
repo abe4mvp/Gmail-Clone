@@ -7,7 +7,7 @@ window.AbeMail = {
 
     AbeMail.$mailBox = $('#mailbox')
     AbeMail.emails = new AbeMail.Collections.Emails(JSON.parse($('#bootstrap-inbox').html()),{parse: true});
-    AbeMail.userId = $('#user_id').val(); // better way to do this?
+    AbeMail.userId = $('#user_id').val(); 
     var emailIndexView = new AbeMail.Views.EmailsIndex({
       collection: AbeMail.emails
     });

@@ -72,7 +72,7 @@ a {
 // body  
 
 body {
-  background-color:gray;
+  background-color:white;
   color:white;
   font-family:sans-serif;
   
@@ -85,9 +85,8 @@ body {
 }
 
 .header-wrap img:hover {
-  -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
-  -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
-  box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+	cursor:pointer;
+	
 }
 
 
@@ -173,25 +172,6 @@ body {
   background-color:#2f2f2f;
 }
 
-//marquee:hover {
-//    width: 50px; white-space: nowrap;
-//    overflow: hidden;
-//    overflow-x:-webkit-marquee;
-//    -webkit-marquee-direction: forwards;
-//    -webkit-marquee-style: scroll;
-//    -webkit-marquee-speed: normal;
-//    -webkit-marquee-increment: small;
-//    -webkit-marquee-repetition: 5;
-//    overflow-x: marquee-line;
-//    marquee-direction: forward;
-//    marquee-style: scroll;
-//    marquee-speed: normal;
-//    marquee-play-count: 5;
-//}
-
-marquee {
-  -webkit-marquee-style: none;
-}
 
 
 
@@ -502,6 +482,7 @@ marquee {
   background: white;
   border-radius: 5px;
   height:100%;
+  background:lightgray;
 }
 
 .login h1 {
@@ -540,7 +521,7 @@ marquee {
 	.submit > input {
 	  position: relative;
 	  display: inline-block;
-	  padding: 8px 2px;
+	  padding: 8px 3px;
 	  font-weight: bold;
 	  background: blue;
 	  box-shadow: 0 3px 0 0 darkblue;
@@ -561,13 +542,14 @@ marquee {
 	
 	.inputs input {
 	  display: inline-block;
-	  border: 2px solid black;
+	  border: 3px solid black;
 	  padding: 8px 0;
 	  border-radius: 5px;
+	  background:white;
 	}
 	
 	.inputs input:focus {
-		border-color:lightgreen;
+		border-color:green;
 	}
 	.inputs {
 		margin:auto;
