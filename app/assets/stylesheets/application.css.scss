@@ -72,12 +72,16 @@ a {
 // body  
 
 body {
-  background-color:#686868;
+  //background-color:white;
   color:white;
   font-family:sans-serif;
-  background-image:url('Crysis.jpg');
-  background-size:100%;
+  
 
+}
+
+.default {
+	background-image:url('Crysis.jpg');
+	background-size:100%;
 }
 
 .header-wrap img:hover {
