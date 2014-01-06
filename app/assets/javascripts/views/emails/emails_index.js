@@ -65,8 +65,23 @@ AbeMail.Views.EmailsIndex = Backbone.View.extend({
 				console.log(rId)
 		    self.updateIndividual(rId, self.toggleHeart, "heart");
 			});
+	
+     $("body").on("click", "#all", function () {
+     		self.selectAll()
+     });
+		 
+		 $("body").on("click", "#none", function () {
+			 self.deselectAll();
+		 });
   },
 
+	selectAll: function () {
+		$(":checkbox").prop("checked", true)
+	},
+	
+	deselectAll: function () {
+		$(":checkbox").prop("checked", false)
+	},
 
 	
 	toggleHeart: function (id) {

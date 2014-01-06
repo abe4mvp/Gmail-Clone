@@ -274,6 +274,38 @@ body {
   
 }
 
+#select {
+  position: relative;
+
+}
+#selct:active {
+	top:-3px;
+}
+
+
+#select:hover  > .dropdown {
+  display: block;
+}
+
+
+
+.buttons.dropdown {
+  display: none;
+  position: absolute;
+  color: black;
+  width: 60px;
+  z-index:1;
+
+}
+
+#select .dropdown li{
+  margin:0;
+  width:60px;
+  background-color: blue;
+	text-align:center;
+  
+}
+
 
 //compose
 
