@@ -8,8 +8,9 @@
   <section class="group" id="sidebar">
     <%= render :partial => 'sidebar' %>
     <br>
-    <h2>AbeChat</h2>
+    
     <ul id="contacts">
+			<h2>AbeChat</h2>
       <% @users.each do |user| %>
       <li><%= user.name %></li>
       <% end %>
@@ -18,7 +19,7 @@
 
   <section id="mailbox">
 
-  <%# render partial: 'email_box' %>
+  
 
   </section>
 </section>
@@ -28,6 +29,7 @@
 </section>
 
 <section id="chat" class="invisible drag-me">
+	
   <%= render :partial => 'chat' %>
 </section>
 
