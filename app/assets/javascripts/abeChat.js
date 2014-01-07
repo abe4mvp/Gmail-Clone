@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 
         $("#chat-log").append(data);
-        $("#chat-log").animate({ scrollTop: $('#chat-log').scrollHeight() }, "slow");
+        $("#chat-log").animate({ scrollTop: $('#chat-log').scrollHeight }, "slow");
 
         var $newewstChat =  $('#chat-log li:last-child')
         if ($newewstChat.hasClass(currentUser)){
