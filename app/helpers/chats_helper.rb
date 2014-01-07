@@ -11,7 +11,7 @@ module ChatsHelper
   
   def auto_respond
     @lincoln = "Abe-Lincoln"
-    auto_respond = render_to_string(partial: "chats/chat", locals: {chat: random_lincoln})
+    auto_respond = render_to_string(partial: "chats/chat", locals: {chat: LINCOLN_QUOTES.sample})
     sleep(2.seconds)
     Pusher.trigger(params[:chat_to], "new_chat_message", auto_respond)
   end
