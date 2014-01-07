@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   $("form.new-chat").on("submit", function(){
 		setTimeout(function(){
-			$("#chat-text").reset();
+			$("#chat-text").val("");
 		}
 		,10)
 		
