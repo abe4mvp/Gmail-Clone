@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
   respond_to :json
+  after_filter :
 
   def create
     
@@ -9,12 +10,13 @@ class ChatsController < ApplicationController
 
     Pusher.trigger(params[:chat_to], "new_chat_message", chat_partial)
     
-    head :created
+    
     
 
     if params[:chat_to] == "Abe-Lincoln"
-      auto_respond
-      head :ok
+      status: 202
+    else
+      head :created
     end
 
     
