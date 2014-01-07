@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   respond_to :json
-  after_filter :
+  after_filter :auto_respond
 
   def create
     
