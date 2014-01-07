@@ -59,7 +59,7 @@ $(document).ready(function(){
     mychannel.bind('new_chat_message', function(data) {
       $('#chat_to')[0].value = currentUser;
 
-      console.log("user subscribing to own channel")
+      console.log("data")
       $('#chat').removeClass('invisible');
 
 
