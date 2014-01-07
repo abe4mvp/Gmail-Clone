@@ -37,8 +37,8 @@ $(document).ready(function(){
 
         $("#chat-log").append(data);
         $("#chat-log").animate({ scrollTop: $('#chat-log').scrollHeight }, "slow");
-				console.log("sc " + $('#chat-log').scrollHeight)
-				console.log("s " + $('#chat-log').height)
+				console.log("sc " + $('#chat-log').scrollHeight())
+				console.log("s " + $('#chat-log').height())
 
         var $newewstChat =  $('#chat-log li:last-child')
         if ($newewstChat.hasClass(currentUser)){
@@ -67,8 +67,8 @@ $(document).ready(function(){
       }
 
       $("#chat-log").append(data);
-			console.log("sc " + $('#chat-log').scrollHeight)
-			console.log("s " + $('#chat-log').height)
+			console.log("sc " + $('#chat-log').scrollHeight())
+			console.log("s " + $('#chat-log').height())
 			
        $("#chat-log").animate({ scrollTop: $('#chat-log').scrollHeight }, "slow");
 
