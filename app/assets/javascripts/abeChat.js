@@ -1,7 +1,8 @@
 $(document).ready(function(){
 
   $("form.new-chat").submit(function(){
-      this.reset();
+		this.submit()
+		this.reset();
    });
 
     
