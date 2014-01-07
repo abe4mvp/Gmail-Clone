@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
 
   include ApplicationHelper
 
+  include ChatsHelper
 end
