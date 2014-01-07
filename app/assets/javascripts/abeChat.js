@@ -1,7 +1,11 @@
 $(document).ready(function(){
 
   $("form.new-chat").on("submit", function(){
-		$("#chat-text").val("")
+		setTimeout(function(){
+			$("#chat-text").val("")
+		}
+		,3000)
+		
    });
 
     
