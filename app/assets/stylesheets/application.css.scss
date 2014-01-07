@@ -629,6 +629,33 @@ body {
   -o-transition: all .5s ease;
 }
 
+// footer
+
+footer {
+	color:black;
+
+	bottom:5px;
+	width:100%;
+	position:absolute;
+	font-size:14px;
+
+	ul {
+		margin:auto;
+		width:590px;
+		min-width:590px;
+		height:20px;
+	}
+	a {
+		color:blue;
+		text-decoration:underline;
+		
+	}
+	li {
+		float:left;
+		margin:0px 10px;
+	}
+}
+
 
 
 
