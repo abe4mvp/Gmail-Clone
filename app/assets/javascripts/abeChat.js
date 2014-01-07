@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 
         $("#chat-log").append(data);
-        $("#chat-log").animate({ scrollTop: $('#chat-log').scroll.height }, "slow");
+       $("#chat-log").scrollTop.($('#chat-log').height);
 
         var $newewstChat =  $('#chat-log li:last-child')
         if ($newewstChat.hasClass(currentUser)){
@@ -62,7 +62,7 @@ $(document).ready(function(){
 
       $("#chat-log").append(data);
 
-      $("#chat-log").animate({ scrollTop: $('#chat-log').height }, "slow");
+      $("#chat-log").scrollTop.($('#chat-log').height);
 
       var $newewstChat =  $('#chat-log li:last-child')
       if ($newewstChat.hasClass(currentUser)){
