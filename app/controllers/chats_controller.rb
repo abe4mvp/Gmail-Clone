@@ -14,7 +14,7 @@ class ChatsController < ApplicationController
     
 
     if params[:chat_to] == "Abe-Lincoln"
-      status: 202
+      head :accepted
     else
       head :created
     end
