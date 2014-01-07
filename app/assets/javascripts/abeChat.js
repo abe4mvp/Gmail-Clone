@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $("form.new-chat").on("ajax:start", function(){
+  $("form.new-chat").on("ajax:success", function(){
 		this.reset();
    });
 
@@ -23,6 +23,7 @@ $(document).ready(function(){
 
       $('#chat_to')[0].value = outgoingName;
       $('#chat').removeClass('invisible');
+			$('#chat-text').focus();
 
       //subscribe to your new chat
       var outchannel = pusher.subscribe(outgoingName);
@@ -31,7 +32,7 @@ $(document).ready(function(){
 
 
         $("#chat-log").append(data);
-        $("#chat-log").animate({ scrollTop: $('#chat-log').scrollHeight }, "slow");
+        $("#chat-log").animate({ scrollTop: $('#chat-log').scroll.height }, "slow");
 
         var $newewstChat =  $('#chat-log li:last-child')
         if ($newewstChat.hasClass(currentUser)){
@@ -61,7 +62,7 @@ $(document).ready(function(){
 
       $("#chat-log").append(data);
 
-      $("#chat-log").animate({ scrollTop: $('#chat-log').scrollHeight }, "slow");
+      $("#chat-log").animate({ scrollTop: $('#chat-log').height }, "slow");
 
       var $newewstChat =  $('#chat-log li:last-child')
       if ($newewstChat.hasClass(currentUser)){
