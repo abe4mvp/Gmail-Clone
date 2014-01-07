@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $("form.new-chat").on("ajax:success", function(){
+  $("form.new-chat").on("submit", function(){
 		this.reset();
    });
 
@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 
         $("#chat-log").append(data);
-       $("#chat-log").scrollTop = $('#chat-log').height;
+        $("#chat-log").animate({ scrollTop: $('#chat-log').height() }, "slow");
 
         var $newewstChat =  $('#chat-log li:last-child')
         if ($newewstChat.hasClass(currentUser)){
@@ -62,7 +62,7 @@ $(document).ready(function(){
 
       $("#chat-log").append(data);
 
-      $("#chat-log").scrollHeight = $('#chat-log').height;
+       $("#chat-log").animate({ scrollTop: $('#chat-log').height() }, "slow");
 
       var $newewstChat =  $('#chat-log li:last-child')
       if ($newewstChat.hasClass(currentUser)){
