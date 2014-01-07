@@ -18,6 +18,13 @@ class ChatsController < ApplicationController
 
     Pusher.trigger(params[:chat_to], "new_chat_message", chat_partial)
     
+    if request.xhr?
+      head :created
+    else
+      redirect_to root_url
+    end
+    
+    puts "stuff happens after head created"
     if params[:chat_to] == "Abe-Lincoln"
       @lincoln = "Abe-Lincoln"
       auto_respond = render_to_string(partial: "chats/chat", locals: {chat: lincoln_quotes.sample})
@@ -25,11 +32,7 @@ class ChatsController < ApplicationController
       Pusher.trigger(params[:chat_to], "new_chat_message", auto_respond)
     end
 
-    if request.xhr?
-      head :created
-    else
-      redirect_to root_url
-    end
+    
     
     
   end
