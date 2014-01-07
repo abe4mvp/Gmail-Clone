@@ -16,7 +16,7 @@ module ChatsHelper
       sleep(2.seconds)
       Pusher.trigger(params[:chat_to], "new_chat_message", quote)
       puts "response " + response.code
-      puts "p " params[:chat_to]
+      puts "p " + params[:chat_to]
     end
   end
   
