@@ -9,16 +9,10 @@ class ChatsController < ApplicationController
     chat_partial = render_to_string(partial: "chats/chat", locals: {chat: chat})
 
     Pusher.trigger(params[:chat_to], "new_chat_message", chat_partial)
-    
-    
-    
 
-    if params[:chat_to] == "Abe-Lincoln"
-      auto_respond
-    else
-      head :created
-    end
+    auto_respond if params[:chat_to] == "Abe-Lincoln"
 
+    head :created
     
   end
   
