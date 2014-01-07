@@ -2,9 +2,9 @@ $(document).ready(function(){
 
   $("form.new-chat").on("submit", function(){
 		setTimeout(function(){
-			$("#chat-text").val("")
+			$("#chat-text").reset();
 		}
-		,3000)
+		,10)
 		
    });
 
@@ -36,7 +36,7 @@ $(document).ready(function(){
 
 
         $("#chat-log").append(data);
-        $("#chat-log").animate({ scrollTop: $('#chat-log').height() }, "slow");
+        $("#chat-log").animate({ scrollTop: $('#chat-log').scrollHeight }, "slow");
 
         var $newewstChat =  $('#chat-log li:last-child')
         if ($newewstChat.hasClass(currentUser)){
@@ -66,7 +66,7 @@ $(document).ready(function(){
 
       $("#chat-log").append(data);
 
-       $("#chat-log").animate({ scrollTop: $('#chat-log').height() }, "slow");
+       $("#chat-log").animate({ scrollTop: $('#chat-log').scrollHeight }, "slow");
 
       var $newewstChat =  $('#chat-log li:last-child')
       if ($newewstChat.hasClass(currentUser)){
