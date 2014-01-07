@@ -36,8 +36,8 @@ $(document).ready(function(){
 
 
         $("#chat-log").append(data);
-        $("#chat-log").animate({ scrollTop: $('#chat-log').scrollHeight }, "slow");
-				console.log("sc " + $('#chat-log').scrollHeight())
+        $("#chat-log").animate({ scrollTop: $('#chat-log').height }, "slow");
+				console.log("sc " + $('#chat-log').prop("scrollHeight"))
 				console.log("s " + $('#chat-log').height())
 
         var $newewstChat =  $('#chat-log li:last-child')
@@ -67,10 +67,10 @@ $(document).ready(function(){
       }
 
       $("#chat-log").append(data);
-			console.log("sc " + $('#chat-log').scrollHeight())
-			console.log("s " + $('#chat-log').height())
+			console.log("sc " + $('#chat-log').prop("scrollHeight"))
+			console.log("s " + $('#chat-log').prop("height"))
 			
-       $("#chat-log").animate({ scrollTop: $('#chat-log').scrollHeight }, "slow");
+       $("#chat-log").animate({ scrollTop: $('#chat-log').height }, "slow");
 
       var $newewstChat =  $('#chat-log li:last-child')
       if ($newewstChat.hasClass(currentUser)){
