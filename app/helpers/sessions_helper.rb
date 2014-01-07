@@ -21,6 +21,10 @@ module SessionsHelper
   def require_no_current_user!
     redirect_to inbox_messages_url if current_user
   end
+  
+  def validate_extension
+    params[:user][:email] += "@abemail.net" unless params[:user][:email].ends_with?("@abemail.net")
+  end
 
 
 end

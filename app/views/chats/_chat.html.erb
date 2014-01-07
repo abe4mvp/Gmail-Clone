@@ -1,1 +1,1 @@
-<li class="<%= current_user.name.gsub(' ', '-') %>"><span><%= chat %></span></li>
+<li class="<%= @lincoln || current_user.name.gsub(' ', '-') %>"><span><%= chat %></span></li>

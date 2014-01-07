@@ -27,12 +27,7 @@ $(document).ready(function(){
         $('#contacts').addClass('invisible');
       }
 
-      $('#contacts').off(); // turn off chat for now
-
-      var namesArr = [outgoingName, currentUser];
-      var namesJoined = namesArr.sort().join(';');
-
-
+      $('#contacts').off(); 
 
       $('#chat_to')[0].value = outgoingName;
       $('#chat').removeClass('invisible');
@@ -67,9 +62,7 @@ $(document).ready(function(){
       console.log("user subscribing to own channel")
       $('#chat').removeClass('invisible');
 
-//       if (data.indexOf(me) === 4){
-//         prefixed = data.replace(me, "me");
-//       }
+
       if ($('#contacts').hasClass('invisible') === false){
         $('#contacts').addClass('invisible');
       }
