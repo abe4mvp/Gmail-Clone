@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   respond_to :json
-  after_filter :auto_respond
+  
 
   def create
     
@@ -14,7 +14,7 @@ class ChatsController < ApplicationController
     
 
     if params[:chat_to] == "Abe-Lincoln"
-      head :accepted
+      auto_respond
     else
       head :created
     end

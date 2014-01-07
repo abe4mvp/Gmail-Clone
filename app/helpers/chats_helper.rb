@@ -15,7 +15,7 @@ module ChatsHelper
       quote = render_to_string(partial: "chats/chat", locals: {chat: LINCOLN_QUOTES.sample})
       sleep(2.seconds)
       Pusher.trigger(params[:chat_to], "new_chat_message", quote)
-
+      head :created
     end
   end
   
