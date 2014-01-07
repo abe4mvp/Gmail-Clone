@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $("form.new-chat").ajaxStart(function(){
+  $("form.new-chat").on("ajaxStart", function(){
 		this.reset();
    });
 
@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 
         $("#chat-log").append(data);
-        $("#chat-log").animate({ scrollTop: $('#chat-log').height() }, "slow");
+        $("#chat-log").animate({ scrollTop: 180 }, "slow");
 
         var $newewstChat =  $('#chat-log li:last-child')
         if ($newewstChat.hasClass(currentUser)){
