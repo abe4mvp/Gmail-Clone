@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 
         $("#chat-log").append(data);
-       $("#chat-log").scrollTop($('#chat-log').height);
+       $("#chat-log").scrollTop = $('#chat-log').height;
 
         var $newewstChat =  $('#chat-log li:last-child')
         if ($newewstChat.hasClass(currentUser)){
@@ -62,7 +62,7 @@ $(document).ready(function(){
 
       $("#chat-log").append(data);
 
-      $("#chat-log").scrollTop($('#chat-log').height);
+      $("#chat-log").scrollHeight = $('#chat-log').height;
 
       var $newewstChat =  $('#chat-log li:last-child')
       if ($newewstChat.hasClass(currentUser)){
