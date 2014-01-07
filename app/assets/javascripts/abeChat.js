@@ -1,16 +1,8 @@
 $(document).ready(function(){
 
-  $("form.new-chat").on("ajax:success", function(event){
+  $("form.new-chat").submit(function(){
       this.reset();
-      $('#chat').removeClass('invisible');
-
-      console.log("ajax success being called")
-
-      if ($('#contacts').hasClass('invisible') === false){
-        $('#contacts').addClass('invisible');
-      }
-
-    });
+   });
 
     
 
