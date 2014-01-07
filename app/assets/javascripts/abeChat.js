@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
-  $("form.new-chat").submit(function(){
-		this.submit()
+  $("form.new-chat").ajaxStart(function(){
 		this.reset();
    });
 
