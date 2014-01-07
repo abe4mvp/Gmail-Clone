@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   $("form.new-chat").on("submit", function(){
-		this.val("");
+		$("#chat-text").val("")
    });
 
     
