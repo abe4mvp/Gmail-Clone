@@ -19,6 +19,13 @@
 		<a class='invisible' href="#">Sign in with exisiting account</a>
 	</div>
 	
+	<div>
+		<br>
+		<p>Employer? Click here!</p>
+		<br>
+		<%= link_to "Demo", "#", id: "demo"%>
+	</div>
+	
 </div>
 
 
@@ -36,10 +43,29 @@
 <script type="text/javascript" charset="utf-8">
 	
 	$('#toggle a').on('click', function(){
-		
+		toggleLogin();
+	});
+	
+	
+	var toggleLogin = function () {
 		$('#toggle a').toggleClass('invisible')
 		$('.login').toggleClass("invisible");
+	}
+	
+	$("#demo").on("click", function () {
+		event.preventDefault();
+		var $loginForm = $(".new-session form")
+		console.log($loginForm)
+		if ($loginForm.hasClass("invisivble")) {
+			toggleLogin();
+		};
 		
-	});
+		$(".new-session form #user_email").text = "Employer"
+		$(".new-session form #user_password").text = "Qwerty"
+		$(".new-session form").trigger("submit");
+		
+	})
+	
+	
 		
 </script>

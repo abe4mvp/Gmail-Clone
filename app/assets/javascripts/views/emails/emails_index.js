@@ -37,7 +37,7 @@ AbeMail.Views.EmailsIndex = Backbone.View.extend({
 				success: successCallback(id, message),
 
         error: function () {
-          console.log('error trying to' + action + "message #" + id)
+          console.log('error trying to change' + attribute + " for message #" + id)
         }
       });
   },
@@ -62,7 +62,6 @@ AbeMail.Views.EmailsIndex = Backbone.View.extend({
 		$("#mailbox").on("click", ".heart-box", function (event) {
 		    var $heart = $(event.currentTarget);
 		    var rId =  $heart.closest('tr').attr('data-id');
-				console.log(rId)
 		    self.updateIndividual(rId, self.toggleHeart, "heart");
 			});
 	
