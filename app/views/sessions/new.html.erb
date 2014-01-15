@@ -55,16 +55,38 @@
 	$("#demo").on("click", function () {
 		event.preventDefault();
 		var $loginForm = $(".new-session form")
-		console.log($loginForm)
+		console.log()
 		if ($loginForm.hasClass("invisivble")) {
 			toggleLogin();
 		};
 		
-		$(".new-session form #user_email").text = "Employer"
-		$(".new-session form #user_password").text = "Qwerty"
-		$(".new-session form").trigger("submit");
+		
+		// $(".new-session form #user_email")[0].value += "employer"
+		
+		var emailField = ".new-session form #user_email";
+		var passwordField = ".new-session form #user_password";
+		simulateTyping(emailField, "Employer", "Employer".length);
+		simulateTyping(passwordField, "qwerty", "qwerty".length);
+		
+		
+		//$(".new-session form").trigger("submit");
 		
 	})
+	
+	var simulateTyping = function (field, input) {
+		var $field = $(field);
+		console.log($field[0])
+		// console
+		var i = 0;
+		var typer = setInterval(function () {
+			var chr = input[i] 
+			$field[0].value += chr
+			if (++i >= input.length) {
+				window.clearInterval(typer)
+			}
+		}, 300);
+
+	};
 	
 	
 		
