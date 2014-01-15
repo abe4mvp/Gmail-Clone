@@ -10,7 +10,7 @@
 		<%= render :partial => 'sign_in' %>
 	</div>
 
-	<div >
+	<div class="new-user">
 		<%= render :partial => 'users/new_user' %>
 	</div>
 	
@@ -20,12 +20,9 @@
 	</div>
 	
 	<div>
-		<br>
-		<p>Employer? Click here!</p>
-		<br>
-		<%= link_to "Demo", "#", id: "demo"%>
+		<p>Employer? Click <%= link_to "Here", "#", id: "demo"%> for a demo!</p>
 	</div>
-	
+
 </div>
 
 
@@ -62,29 +59,40 @@
 		
 		
 		// $(".new-session form #user_email")[0].value += "employer"
+		var queue3 = function () {
+			$(".new-session form").trigger("submit");
+		}
+		
+		var queue2 = function () {
+			var passwordField = ".new-session form #user_password";
+			simulateTyping(passwordField, "qwerty", queue3) ;
+		}
 		
 		var emailField = ".new-session form #user_email";
-		var passwordField = ".new-session form #user_password";
-		simulateTyping(emailField, "Employer", "Employer".length);
-		simulateTyping(passwordField, "qwerty", "qwerty".length);
+		
+		simulateTyping(emailField, "Employer", queue2);
 		
 		
-		//$(".new-session form").trigger("submit");
+		
+		//
 		
 	})
 	
-	var simulateTyping = function (field, input) {
+	var simulateTyping = function (field, input, queueCall) {
 		var $field = $(field);
-		console.log($field[0])
 		// console
+		console.log(typeof(queueCall))
 		var i = 0;
 		var typer = setInterval(function () {
-			var chr = input[i] 
-			$field[0].value += chr
+			var chr = input[i]; 
+			$field[0].value += chr;
 			if (++i >= input.length) {
 				window.clearInterval(typer)
-			}
-		}, 300);
+				console.log(queueCall);
+				;
+				queueCall();
+			};
+		}, 200);
 
 	};
 	
