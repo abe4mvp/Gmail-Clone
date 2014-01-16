@@ -5,7 +5,8 @@
     <input type="submit" value="Search">
 
     <ul class="header-right group">
-      <li id="current-username">Hello <%= current_user.name %>!</li>
+			<li>Welcome:</li>
+      <li id="current-username"><%= current_user.name %></li>
       <li><%= button_to "Logout", session_url, :method => :delete %></li>
     </ul>
 

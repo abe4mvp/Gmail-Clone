@@ -559,8 +559,12 @@ body {
 	
 } 
 
-#toggle {
+#toggle, #demo-text {
 	text-align:center;
+	a {
+		text-decoration:underline;
+		color:blue;
+	}
 }
 
 
