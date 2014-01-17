@@ -14,9 +14,7 @@
   </td>
   <% if ( message.get('sender_id') == AbeMail.userId ) { %>
     <td class="show to">
-      <a href="#/messages/<%= message.get('id') %>">
-        TO: <%= message.get('display_recipient_emails') %>
-      </a>
+      <a href="#/messages/<%= message.get('id') %>">TO: <%= message.get('display_recipient_emails') %></a>
     </td>
   <% } else { %>
     <td class="show from">
