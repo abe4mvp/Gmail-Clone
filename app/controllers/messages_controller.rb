@@ -54,6 +54,4 @@ class MessagesController < ApplicationController
     respond_with(@messages)
   end
 
-
-
 end
