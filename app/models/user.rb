@@ -51,7 +51,10 @@ class User < ActiveRecord::Base
   def trash
     Message.includes(:flags).merge(Flag.where(user_id: self.id, trashed: true)).sort_by { |m| m.created_at }
   end
-
+  
+  def search(params)
+    #Message.search_by_contents(params).includes(:flags).merge(Flag.where(user_id: self.id)).sort_by { |m| m.created_at }
+  end
 
   def downcase_email
     self.email.downcase!

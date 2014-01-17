@@ -45,6 +45,10 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
   trash: function () {
     this.getFolder('trash')
   },
+	
+	search: function () {
+		this.getFoler('search')
+	}
 
 
   getFolder: function (folderType) {

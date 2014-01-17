@@ -86,6 +86,10 @@ GEM
     mime-types (1.25.1)
     multi_json (1.8.2)
     pg (0.17.0)
+    pg_search (0.7.2)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     polyglot (0.3.3)
     pusher (0.12.0)
       httpclient (~> 2.3.0)
@@ -159,6 +163,7 @@ DEPENDENCIES
   json
   letter_opener
   pg
+  pg_search
   pusher
   rabl-rails
   rails (= 3.2.13)

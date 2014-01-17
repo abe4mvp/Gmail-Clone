@@ -1,9 +1,14 @@
 <div class="header-wrap group">
 
 		<%= image_tag "AbeMail.png" %>
-    <input type="text" name="search" placeholder="What are you looking for?" id="search">
-    <input type="submit" value="Search">
-
+		
+		<form action="<%= "/#" + search_messages_path %>" method="get" accept-charset="utf-8">
+			
+	    <input type="text" name="search" placeholder="What are you looking for?" id="search">
+	    <input type="submit" value="Search">
+		</form>
+    
+		</form>
     <ul class="header-right group">
 			<li>Welcome:</li>
       <li id="current-username"><%= current_user.name %></li>

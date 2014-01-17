@@ -1,4 +1,8 @@
 class Message < ActiveRecord::Base
+  
+  include PgSearch
+  pg_search_scope :search_by_contents, :against => [:sender, :recipient_emails, :body, :subject]
+  
   attr_accessible :body, :draft, :sender, :sender_id, :subject, :recipient_emails
   
   before_save :format_recipient_emails

@@ -9,6 +9,7 @@ AbeMail::Application.routes.draw do
       get 'sent'
       get 'favorites'
       get 'trash'
+      get 'search'
     end
   end
   resources :flags, only: [:update]

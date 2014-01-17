@@ -53,5 +53,10 @@ class MessagesController < ApplicationController
 
     respond_with(@messages)
   end
-
+  
+  def search 
+    @messages = current_user.search(params[:search])
+    
+    respond_with(@messages)
+  end
 end
