@@ -132,8 +132,11 @@ body {
 
 .from, .to {
   width:200px;
-	overflow:hidden;
+	
 	height:40px;
+	a {
+		overflow:hidden;
+	}
 }
 .preview {
   overflow:hidden;
