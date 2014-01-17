@@ -7,8 +7,7 @@ AbeMail::Application.routes.draw do
       post "outgoing"
       get 'inbox'
       get 'sent'
-      get 'favorited'
-      get 'draft'
+      get 'favorites'
       get 'trash'
     end
   end

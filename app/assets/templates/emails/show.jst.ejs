@@ -1,12 +1,7 @@
-<% var redClass = message.get('flags').get('heart') === true ? 'red' : "" %>
-<header><%= message.escape('subject') %>
-  <div class="heart <%= redClass %>">
-  <span class="heart-box">
-    ♥
-  </span>
-  </div>
-</header>
+<div id="email-show">
+<header>SUBJECT:<%= message.escape('subject') %></header>
 <br>
 <article>
   <%= message.get('body') %>
 </article>
+</div>

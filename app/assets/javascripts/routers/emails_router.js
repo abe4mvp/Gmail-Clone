@@ -5,7 +5,7 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
 
     'messages/sent': 'sent',
     'messages/inbox': 'inbox',
-    'messages/favorited': 'favorited',
+    'messages/favorites': 'favorites',
     'messages/trash': 'trash',
     'messages/:id': 'show'
   },
@@ -38,8 +38,8 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
     this.getFolder('inbox')
   },
 
-  favorited: function () {
-    this.getFolder('favorited')
+  favorites: function () {
+    this.getFolder('favorites')
   },
 
   trash: function () {
@@ -61,7 +61,7 @@ AbeMail.Routers.Emails = Backbone.Router.extend({
         AbeMail.$mailBox.html(self._swapView(emailIndexView));
       },
       error: function () {
-        console.log('surprise mutha-fucka');
+        console.log('mail box fetch error');
       }
     });
 
