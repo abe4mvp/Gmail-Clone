@@ -42,8 +42,8 @@ class MessagesController < ApplicationController
     respond_with(@messages)
   end
 
-  def favorited
-    @messages = current_user.favorited
+  def favorites
+    @messages = current_user.favorites
 
     respond_with(@messages)
   end

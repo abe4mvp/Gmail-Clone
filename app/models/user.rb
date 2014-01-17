@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
     sent_messages.includes(:flags).merge(Flag.where(user_id: self.id, trashed: false)).sort_by { |m| m.created_at }
   end
 
-  def favorited
+  def favorites
     Message.includes(:flags).merge(Flag.where(user_id: self.id, heart: true, trashed: false)).sort_by { |m| m.created_at }
   end
   #save the m.created at to a prc

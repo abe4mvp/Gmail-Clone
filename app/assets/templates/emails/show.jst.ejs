@@ -1,7 +1,19 @@
 <div id="email-show">
-<header>SUBJECT:<%= message.escape('subject') %></header>
+<header>SUBJECT: <%= message.escape('subject') %></header>
 <br>
 <article>
-  <%= message.get('body') %>
+	<div class="show-left group">
+	<li id="show-from">From: <%= message.get('sender') %></li>
+	<br>
+	<li id="show-to">To: <%= message.get('display_recipient_emails') %></li>
+	</div>
+	
+	<div class="show-right group">
+	<li id="timestamp"><%= message.get('time_stamp') %></li>
+	<% var redClass = message.get('flags').get('heart') === true ? 'red' : "" %>
+	<p class="heart"><div class="heart-box <%= redClass %>">♥</div></p>
+	</div>
+	<br>
+  <p id="message-body"><%= message.get('body') %></p>
 </article>
 </div>

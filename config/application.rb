@@ -63,6 +63,8 @@ module AbeMail
     config.assets.version = '1.0'
 
     config.assets.paths << "app/assets/templates"
+    
+    config.time_zone = 'Eastern Time (US & Canada)'
 
   end
 end

@@ -681,6 +681,15 @@ footer {
 	color:black;
 	padding:15px;
 	
+	#show-from, #show-to {
+		float:left;
+		display:inline-block;
+	}
+	
+	#timestamp, .heart-box {
+		float:right;
+		display:inline-block;
+	}
 	
 	header {
 		font-size:20px;
@@ -694,6 +703,26 @@ footer {
 		background-color:white;
 		
 	}
+	
+	.show-left, .show-right {
+		display:inline-block;
+	}
+	
+	.show-left li {
+		
+	}
+	
+	.show-right {
+		float:right;
+	}
+	
+	#message-body {
+		white-space:pre;
+		border-top:1px solid gray;
+		padding-top:3px;
+	}
+	
+
 }
 
 
