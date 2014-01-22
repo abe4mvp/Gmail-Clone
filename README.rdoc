@@ -13,11 +13,13 @@ Created with the following languages/technologies:
 
 
 
-Try logging in with the demo account and testing out these cool features:
+=== Try logging in with the demo account and testing out these cool features:
 
 * Click compose to send an email
 * Select the checkboxes next to multiple emails to categorize them (read, unread, favorite etc..)
 * Click the AbeMail logo in the top left corner to toggle between different themes
+* Click on an individual email to see the full message
+* Click the folders on the left to switch between your folders (inbox, sent, favorite, trash)
 * Click on Abe Lincoln's name under the AbeChat menu and send him a chat message 
        Abe Lincoln will respond automaticaly so you can demo the chat feature when no users are online
 
